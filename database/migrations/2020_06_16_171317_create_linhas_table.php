@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePaginasTable extends Migration
+class CreateLinhasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,29 @@ class CreatePaginasTable extends Migration
      */
     public function up()
     {
-        Schema::create('paginas', function (Blueprint $table) {
+        Schema::create('linhas', function (Blueprint $table) {
             
-            $table->increments('id');
+            $table->increments('linha_id');
             
+            $table->integer('recomendado_id')->unsigned()->index()
+                ->foreign('recomendado_id')->references('id')
+                ->on('recomendados')->onDelete('cascade');
+
             $table->string('identificador_url',100);
             
-            $table->char('titulo',100);     
-            
+            $table->char('nome',100);  
+
             $table->text('descricao',500);
             
-            $table->char('palavras_chave',255);
+            $table->char('principal_funcao',255);
             
             $table->char('titulo_para_seo',60);
             
             $table->text('descricao_para_seo',320);
-     
-            $table->timestamps();
 
+            $table->enum('exibir_na_loja', [0, 1]);
+            
+            $table->timestamps();
         });
     }
 
@@ -41,6 +46,6 @@ class CreatePaginasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paginas');
+        Schema::dropIfExists('linhas');
     }
 }
