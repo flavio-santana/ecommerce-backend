@@ -2,14 +2,21 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
+use App\Model\Linha;
 use App\Model\Produto;
+
 use Faker\Generator as Faker;
 
 $factory->define(Produto::class, function (Faker $faker) {
     
     return [
-        //
+        
+        'linha_id' => function (){
 
+            return Linha::all()->random();
+            
+        },
+        
         'sku' => $faker->randomNumber($nbDigits = 5, $strict = false),
 
         'codigo_barras' => $faker->ean13,

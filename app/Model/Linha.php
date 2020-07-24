@@ -7,4 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Linha extends Model
 {
     //
+    protected $fillable = array(
+        'id', 
+        'identificador_url', 
+        'nome', 
+        'descricao', 
+        'principal_funcao', 
+        'titulo_para_seo', 
+        'palavras_chave',
+        'descricao_para_seo',
+        'exibir_na_loja',
+    );
 }

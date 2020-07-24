@@ -13,14 +13,14 @@ class CreateLinhasTable extends Migration
      */
     public function up()
     {
-        /*
+        
         Schema::create('linhas', function (Blueprint $table) {
             
-            $table->increments('linha_id');
+            $table->increments('id');
             
-            $table->integer('recomendado_id')->unsigned()->index()
+            /*$table->integer('recomendado_id')->unsigned()->index()
                 ->foreign('recomendado_id')->references('id')
-                ->on('recomendados')->onDelete('cascade');
+                ->on('recomendados')->onDelete('cascade');*/
 
             $table->string('identificador_url',100);
             
@@ -31,15 +31,17 @@ class CreateLinhasTable extends Migration
             $table->char('principal_funcao',255);
             
             $table->char('titulo_para_seo',60);
+
+            $table->text('palavras_chave',500);
             
             $table->text('descricao_para_seo',320);
 
-            $table->enum('exibir_na_loja', [0, 1]);
+            $table->enum('exibir_na_loja', ['Nao', 'Sim']);
             
             $table->timestamps();
             
         });
-        */
+        
     }
 
     /**

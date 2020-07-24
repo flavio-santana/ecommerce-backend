@@ -17,12 +17,10 @@ class CreateProdutosTable extends Migration
             
             $table->increments('id');
             
-            /*
             $table->integer('linha_id')->unsigned()->index()
                 ->foreign('linha_id')->references('id')
-                ->on('linhas')->onDelete('cascade');
-            */
-
+                ->on('linhas')->onUpdate('cascade');
+            
             $table->integer('sku');
 
             $table->string('codigo_barras',100);

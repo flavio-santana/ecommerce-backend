@@ -4,9 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Model\Linha;
 use Illuminate\Http\Request;
+use App\Repositories\LinhaRepository;
+use App\Http\Resources\Linha\LinhaResource;
+use App\Http\Resources\Linha\LinhaCollection; 
 
 class LinhaController extends Controller
 {
+
+    protected $linha;
+
+    /**
+     * ProdutoController constructor
+     * 
+     * @param ProdutoRepository $produto
+     */
+    public function __construct(LinhaRepository $linha)
+    {
+        $this->linha = $linha;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +31,7 @@ class LinhaController extends Controller
     public function index()
     {
         //
+        return LinhaCollection::collection($this->linha->all());
     }
 
     /**
@@ -47,6 +64,7 @@ class LinhaController extends Controller
     public function show(Linha $linha)
     {
         //
+        return new LinhaResource($this->linha->get($linha->id));
     }
 
     /**
