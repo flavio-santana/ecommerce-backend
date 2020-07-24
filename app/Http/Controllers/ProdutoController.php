@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Model\Produto;
 use Illuminate\Http\Request;
-
 use App\Repositories\ProdutoRepository;
-
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Resources\Produto\ProdutoResource; 
+use App\Http\Resources\Produto\ProdutoCollection; 
+
 
 /**
  * 
@@ -35,8 +36,7 @@ class ProdutoController extends Controller
     public function index()
     {
         //
-        return response()->json($this->produto->all());
-
+        return ProdutoCollection::collection($this->produto->all());
     }
 
     /**
@@ -71,7 +71,7 @@ class ProdutoController extends Controller
     {
 
         //
-        return response()->json($this->produto->get($produto->id));
+        return new ProdutoResource($this->produto->get($produto->id));
     }
 
     /**

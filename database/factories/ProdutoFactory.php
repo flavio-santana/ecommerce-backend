@@ -6,10 +6,11 @@ use App\Model\Produto;
 use Faker\Generator as Faker;
 
 $factory->define(Produto::class, function (Faker $faker) {
+    
     return [
         //
 
-        'codigo' => $faker->randomDigit,
+        'sku' => $faker->randomNumber($nbDigits = 5, $strict = false),
 
         'codigo_barras' => $faker->ean13,
         

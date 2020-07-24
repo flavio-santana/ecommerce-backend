@@ -68,4 +68,12 @@ class ProdutoRepository implements ProdutoRepositoryInterface
         Produto::find($produto_id)->update($produto_data);
     }
     
+    /**
+     * 
+     */
+    public function paginate($take=0)
+    {
+        return Produto::paginate($take);
+    }
+
 }

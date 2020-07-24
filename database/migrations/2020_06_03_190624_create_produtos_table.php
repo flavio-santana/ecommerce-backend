@@ -23,7 +23,7 @@ class CreateProdutosTable extends Migration
                 ->on('linhas')->onDelete('cascade');
             */
 
-            $table->string('codigo');
+            $table->integer('sku');
 
             $table->string('codigo_barras',100);
             
