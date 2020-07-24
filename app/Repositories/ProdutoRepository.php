@@ -9,53 +9,38 @@ use App\Model\Produto;
 /**
  * 
  */
-class ProdutoRepository extends BaseRepository
+class ProdutoRepository implements ProdutoRepositoryInterface
 {
-    /**
-     * 
-     */
-    protected $model;
-
-    /**
-     * 
-     */
-    public function __construct(Produto $model)
-	{
-		$this->model = $model;
-    }
     
-
     /**
-     * 
+     * Recebe um produto por seu ID
+     *
+     * @param int
+     * @return collection
      */
-	public function findAll()
-	{
-        return $this->model->all();
+    public function get($produto_id)
+    {
+        return Produto::find($produto_id);
     }   
     
     /**
-     * 
+     * Recebe todos os produtos.
+     *
+     * @return mixed
      */
-    public function find($produto_id)
+    public function all()
     {
-        return $this->model->find($produto_id);
-    }
-    
-    /**
-     * 
-     */
-    public function findBy($att, $column)
-    {
-        return $this->model->where($att, $column);
+        return Produto::all();
     }
 
     /**
-     * 
+     * Deletes a produto.
+     *
+     * @param int
      */
-    public function destroy($id)
+    public function delete($produto_id)
     {
-        
-        $answer=$this->model->find($id)->delete();
+        $answer=Produto::destroy($produto_id); 
 
         if ($answer){
             $data=[
@@ -72,4 +57,15 @@ class ProdutoRepository extends BaseRepository
         return $data;
     }
 
+    /**
+     * Updates um produto.
+     *
+     * @param int
+     * @param array
+     */
+    public function update($produto_id, array $produto_data)
+    {
+        Produto::find($produto_id)->update($produto_data);
+    }
+    
 }
