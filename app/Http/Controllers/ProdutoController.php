@@ -5,8 +5,28 @@ namespace App\Http\Controllers;
 use App\Model\Produto;
 use Illuminate\Http\Request;
 
+use App\Repositories\ProdutoRepository;
+
+use Symfony\Component\HttpFoundation\Response;
+
+/**
+ * 
+ */
 class ProdutoController extends Controller
 {
+
+    protected $produto;
+
+    /**
+     * ProdutoController constructor
+     * 
+     * @param ProdutoRepository $produto
+     */
+    public function __construct(ProdutoRepository $produto)
+    {
+        $this->produto = $produto;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +35,8 @@ class ProdutoController extends Controller
     public function index()
     {
         //
-        return response()->json('produtos');
+        return response()->json($this->produto->findAll());
+
     }
 
     /**
@@ -45,9 +66,12 @@ class ProdutoController extends Controller
      * @param  \App\Model\Produto  $produto
      * @return \Illuminate\Http\Response
      */
+    //public function show(Produto $produto)
     public function show(Produto $produto)
     {
+
         //
+        return response()->json($this->produto->find($produto->id));
     }
 
     /**
@@ -81,6 +105,10 @@ class ProdutoController extends Controller
      */
     public function destroy(Produto $produto)
     {
+
         //
+        $data = $this->produto->destroy($produto->id); 
+        
+        return response()->json($data);
     }
 }

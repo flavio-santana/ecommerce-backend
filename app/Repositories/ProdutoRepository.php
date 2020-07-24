@@ -6,33 +6,39 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Model\Produto;
 
+/**
+ * 
+ */
 class ProdutoRepository extends BaseRepository
 {
-    //
-    private $model;
+    /**
+     * 
+     */
+    protected $model;
 
     /**
      * 
      */
-	public function __construct(Produto $model)
+    public function __construct(Produto $model)
 	{
 		$this->model = $model;
-	}
+    }
+    
 
     /**
      * 
      */
 	public function findAll()
 	{
-		return $this->model->all();
+        return $this->model->all();
     }   
     
     /**
      * 
      */
-    public function find($id)
+    public function find($produto_id)
     {
-        return $this->post->find($id);
+        return $this->model->find($produto_id);
     }
     
     /**
@@ -40,7 +46,30 @@ class ProdutoRepository extends BaseRepository
      */
     public function findBy($att, $column)
     {
-        return $this->post->where($att, $column)
+        return $this->model->where($att, $column);
+    }
+
+    /**
+     * 
+     */
+    public function destroy($id)
+    {
+        
+        $answer=$this->model->find($id)->delete();
+
+        if ($answer){
+            $data=[
+                'status'=>'1',
+                'msg'=>'success'
+            ];
+        }else{
+            $data=[
+                'status'=>'0',
+                'msg'=>'fail'
+            ];
+        } 
+        
+        return $data;
     }
 
 }

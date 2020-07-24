@@ -13,6 +13,7 @@ class CreatePaginasTable extends Migration
      */
     public function up()
     {
+        /*
         Schema::create('paginas', function (Blueprint $table) {
             
             $table->increments('id');
@@ -30,8 +31,9 @@ class CreatePaginasTable extends Migration
             $table->text('descricao_para_seo',320);
      
             $table->timestamps();
-
+            
         });
+        */
     }
 
     /**

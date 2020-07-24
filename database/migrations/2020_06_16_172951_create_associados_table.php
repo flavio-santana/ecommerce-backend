@@ -13,6 +13,7 @@ class CreateAssociadosTable extends Migration
      */
     public function up()
     {
+        /*
         Schema::create('associados', function (Blueprint $table) {
             
             $table->increments('id');
@@ -28,8 +29,9 @@ class CreateAssociadosTable extends Migration
             $table->enum('exibir_na_loja', [0, 1]);
 
             $table->timestamps();
-
+            
         });
+        */
     }
 
     /**

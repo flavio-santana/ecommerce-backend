@@ -13,8 +13,9 @@ class CreateAtivosTable extends Migration
      */
     public function up()
     {
+        /*
         Schema::create('ativos', function (Blueprint $table) {
-            
+                 
             $table->increments('id');
             
             $table->string('identificador_url',100);
@@ -30,7 +31,9 @@ class CreateAtivosTable extends Migration
             $table->enum('exibir_na_loja', [0, 1]);
      
             $table->timestamps();
+            
         });
+        */
     }
 
     /**

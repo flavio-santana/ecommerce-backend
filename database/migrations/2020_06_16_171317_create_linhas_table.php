@@ -13,6 +13,7 @@ class CreateLinhasTable extends Migration
      */
     public function up()
     {
+        /*
         Schema::create('linhas', function (Blueprint $table) {
             
             $table->increments('linha_id');
@@ -36,7 +37,9 @@ class CreateLinhasTable extends Migration
             $table->enum('exibir_na_loja', [0, 1]);
             
             $table->timestamps();
+            
         });
+        */
     }
 
     /**

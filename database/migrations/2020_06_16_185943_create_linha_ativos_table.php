@@ -13,8 +13,9 @@ class CreateLinhaAtivosTable extends Migration
      */
     public function up()
     {
+        /*
         Schema::create('linha_ativos', function (Blueprint $table) {
-
+            
             $table->increments('id');
             
             $table->integer('linha_id')->unsigned()->index()
@@ -28,7 +29,9 @@ class CreateLinhaAtivosTable extends Migration
             $table->enum('exibir_na_loja', [0, 1]);
 
             $table->timestamps();
+            
         });
+        */
     }
 
     /**

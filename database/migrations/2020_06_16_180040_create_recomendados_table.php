@@ -13,6 +13,7 @@ class CreateRecomendadosTable extends Migration
      */
     public function up()
     {
+        /*
         Schema::create('recomendados', function (Blueprint $table) {
             
             $table->increments('id');
@@ -30,7 +31,9 @@ class CreateRecomendadosTable extends Migration
             $table->enum('exibir_na_loja', [0, 1]);
 
             $table->timestamps();
+            
         });
+        */
     }
 
     /**

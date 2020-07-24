@@ -17,10 +17,12 @@ class CreateProdutosTable extends Migration
             
             $table->increments('id');
             
+            /*
             $table->integer('linha_id')->unsigned()->index()
                 ->foreign('linha_id')->references('id')
                 ->on('linhas')->onDelete('cascade');
-                
+            */
+
             $table->string('codigo');
 
             $table->string('codigo_barras',100);
@@ -31,9 +33,9 @@ class CreateProdutosTable extends Migration
             
             $table->text('descricao',500);
             
-            $table->char('palavras_chave',255);
+            $table->text('palavras_chave',500);
             
-            $table->char('titulo_para_seo',60);
+            $table->char('titulo_para_seo',100);
             
             $table->text('descricao_para_seo',320);
             
@@ -51,9 +53,9 @@ class CreateProdutosTable extends Migration
             
             $table->integer('estoque');
             
-            $table->enum('exibir_na_loja', [0, 1]);
+            $table->enum('exibir_na_loja', ['Nao', 'Sim']);
 
-            $table->enum('frete_gratis', [0, 1]);
+            $table->enum('frete_gratis', ['Nao', 'Sim']);
             
             $table->timestamps();
 
