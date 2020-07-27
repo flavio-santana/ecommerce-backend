@@ -35,9 +35,13 @@ class ProdutoResource extends JsonResource
             'exibir_na_loja'     => $this->exibir_na_loja,
             'frete_gratis'       => $this->frete_gratis,
               
-            'ref' => [
+            'ref1' => [
                 'href'  => route('produtos.index'),
             ],  
+
+            'ref2' => [
+                'href'  => route('produtos',$this->linha_id),
+            ],
         ];
     }
 }

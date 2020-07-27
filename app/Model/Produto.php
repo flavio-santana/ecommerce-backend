@@ -4,6 +4,8 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Model\Linha; 
+
 class Produto extends Model
 {
     //
@@ -29,4 +31,12 @@ class Produto extends Model
         'created_at',
         'updated_at',
     );
+
+    /**
+     * 
+     */
+    public function linha()
+    {
+        $this->belongsTo(Linha::class);
+    }
 }

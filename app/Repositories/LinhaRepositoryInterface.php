@@ -9,7 +9,7 @@ interface LinhaRepositoryInterface
      *
      * @param int
      */
-    public function get($linha_id);
+    public function get($id);
 
     /**
      * Recebe todos os produtos.
@@ -23,7 +23,7 @@ interface LinhaRepositoryInterface
      *
      * @param int
      */
-    public function delete($linha_id);
+    public function delete($id);
 
     /**
      * Updates a produto.
@@ -31,5 +31,5 @@ interface LinhaRepositoryInterface
      * @param int
      * @param array
      */
-    public function update($linha_id, array $linha_data);
+    public function update($id, array $data);
 }

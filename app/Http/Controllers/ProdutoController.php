@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Linha;
 use App\Model\Produto;
 use Illuminate\Http\Request;
 use App\Repositories\ProdutoRepository;
@@ -110,5 +111,16 @@ class ProdutoController extends Controller
         $data = $this->produto->destroy($produto->id); 
         
         return response()->json($data);
+    }
+
+    /**
+     * 
+     */
+    public function produtos(Linha $linha)
+    {
+        
+        //return ProdutoResource::collection($linha->produtos);
+        //return new ProdutoResource($linha->produtos);
+        return ProdutoCollection::collection($linha->produtos);
     }
 }

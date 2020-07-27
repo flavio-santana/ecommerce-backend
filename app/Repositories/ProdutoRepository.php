@@ -18,9 +18,9 @@ class ProdutoRepository implements ProdutoRepositoryInterface
      * @param int
      * @return collection
      */
-    public function get($produto_id)
+    public function get($id)
     {
-        return Produto::find($produto_id);
+        return Produto::find($id);
     }   
     
     /**
@@ -38,9 +38,9 @@ class ProdutoRepository implements ProdutoRepositoryInterface
      *
      * @param int
      */
-    public function delete($produto_id)
+    public function delete($id)
     {
-        $answer=Produto::destroy($produto_id); 
+        $answer=Produto::destroy($id); 
 
         if ($answer){
             $data=[
@@ -63,9 +63,9 @@ class ProdutoRepository implements ProdutoRepositoryInterface
      * @param int
      * @param array
      */
-    public function update($produto_id, array $produto_data)
+    public function update($id, array $data)
     {
-        Produto::find($produto_id)->update($produto_data);
+        Produto::find($id)->update($data);
     }
     
     /**

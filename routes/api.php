@@ -9,3 +9,6 @@ Route::apiResource('/linhas','LinhaController');
 Route::apiResource('/produtos','ProdutoController');
 
 Route::apiResource('/paginas','PaginaController');
+
+Route::get('/linhas/{linha}/produtos', 'ProdutoController@produtos')->name('produtos');
+

@@ -25,9 +25,13 @@ class LinhaResource extends JsonResource
             'descricao_para_seo' => $this->descricao_para_seo,  
             'exibir_na_loja'     => $this->exibir_na_loja,  
             
-            'ref' => [
+            'ref1' => [
                 'href'  => route('linhas.index'),
-            ],  
+            ],
+            
+            'ref2' => [
+                'href'  => route('produtos',$this->id),
+            ],
         ];
     }
 }

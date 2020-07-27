@@ -19,9 +19,11 @@ class ProdutoCollection extends JsonResource
             'sku'       => $this->sku,
             'nome'      => $this->nome,
             'descricao' => $this->descricao,
-            'ref' => [
+
+            'ref1' => [
                 'href'  => route('produtos.show', $this->id),
-            ],  
+            ],
+
         ];
         
     }

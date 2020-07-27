@@ -18,9 +18,9 @@ class LinhaRepository implements LinhaRepositoryInterface
      * @param int
      * @return collection
      */
-    public function get($linha_id)
+    public function get($id)
     {
-        return Linha::find($linha_id);
+        return Linha::find($id);
     }   
     
     /**
@@ -38,9 +38,9 @@ class LinhaRepository implements LinhaRepositoryInterface
      *
      * @param int
      */
-    public function delete($linha_id)
+    public function delete($id)
     {
-        $answer=Linha::destroy($linha_id); 
+        $answer=Linha::destroy($id); 
 
         if ($answer){
             $data=[
@@ -63,9 +63,9 @@ class LinhaRepository implements LinhaRepositoryInterface
      * @param int
      * @param array
      */
-    public function update($linha_id, array $linha_data)
+    public function update($id, array $data)
     {
-        Produto::find($linha_id)->update($linha_data);
+        Produto::find($id)->update($data);
     }
     
     /**

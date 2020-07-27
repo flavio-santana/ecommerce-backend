@@ -4,6 +4,8 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Model\Produto; 
+
 class Linha extends Model
 {
     //
@@ -18,4 +20,12 @@ class Linha extends Model
         'descricao_para_seo',
         'exibir_na_loja',
     );
+
+    /**
+     * 
+     */
+    public function produtos()
+    {
+        return $this->hasMany(Produto::class);
+    }
 }
