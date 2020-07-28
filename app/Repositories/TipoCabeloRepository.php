@@ -4,12 +4,12 @@ namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Model\Linha;
+use App\Model\TipoCabelo;
 
 /**
  * 
  */
-class LinhaRepository implements LinhaRepositoryInterface
+class TipoCabeloRepository implements TipoCabeloRepositoryInterface
 {
     
     /**
@@ -20,7 +20,7 @@ class LinhaRepository implements LinhaRepositoryInterface
      */
     public function get($id)
     {
-        return Linha::find($id);
+        return TipoCabelo::find($id);
     }   
     
     /**
@@ -30,7 +30,7 @@ class LinhaRepository implements LinhaRepositoryInterface
      */
     public function all()
     {
-        return Linha::all();
+        return TipoCabelo::all();
     }
 
     /**
@@ -40,7 +40,7 @@ class LinhaRepository implements LinhaRepositoryInterface
      */
     public function delete($id)
     {
-        $answer=Linha::destroy($id); 
+        $answer=TipoCabelo::destroy($id); 
 
         if ($answer){
             $data=[
@@ -65,7 +65,7 @@ class LinhaRepository implements LinhaRepositoryInterface
      */
     public function update($id, array $data)
     {
-        //Linha::find($id)->update($data);
+        TipoCabelo::find($id)->update($data);
     }
     
     /**
@@ -73,19 +73,18 @@ class LinhaRepository implements LinhaRepositoryInterface
      */
     public function paginate($take=0)
     {
-        return Linha::paginate($take);
+        return TipoCabelo::paginate($take);
     }
-
-        
+    
     /**
      * exibirNaLoja
      *
-     * @param  String $opcao
-     * @return object
+     * @param  mixed $opcao
+     * @return void
      */
     public function exibirNaLoja(String $opcao)
     {
-        return Linha::where('exibir_na_loja','=',$opcao)->get();
+        return TipoCabelo::where('exibir_na_loja','=',$opcao)->get();
     }
 
 }

@@ -76,4 +76,17 @@ class ProdutoRepository implements ProdutoRepositoryInterface
         return Produto::paginate($take);
     }
 
+    public function exibirNaLoja(String $opcao)
+    {
+        return Produto::where('exibir_na_loja','=',$opcao)->get();
+    }
+
+    /**
+     * 
+     */
+    public function freteGratis(String $opcao)
+    {
+        return Produto::where('frete_gratis','=',$opcao)->get();
+    }
+
 }

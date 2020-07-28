@@ -2,26 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\Linha;
 use App\Model\TipoCabelo;
 use Illuminate\Http\Request;
-use App\Repositories\LinhaRepository;
-use App\Http\Resources\Linha\LinhaResource;
-use App\Http\Resources\Linha\LinhaCollection; 
+use App\Repositories\TipoCabeloRepository;
+use App\Http\Resources\TipoCabelo\TipoCabeloResource;
+use App\Http\Resources\TipoCabelo\TipoCabeloCollection;
 
-class LinhaController extends Controller
+class TipoCabeloController extends Controller
 {
 
-    protected $linha;
+    protected $tipoCabelo;
 
     /**
      * ProdutoController constructor
      * 
-     * @param ProdutoRepository $produto
+     * @param TipoCabeloRepository $tipoCabelo
      */
-    public function __construct(LinhaRepository $linha)
+    public function __construct(TipoCabeloRepository $tipoCabelo)
     {
-        $this->linha = $linha;
+        $this->tipoCabelo = $tipoCabelo;
     }
 
     /**
@@ -32,7 +31,8 @@ class LinhaController extends Controller
     public function index()
     {
         //
-        return LinhaCollection::collection($this->linha->all());
+        //return response()->json('tipos de cabelos');
+        return TipoCabeloCollection::collection($this->tipoCabelo->all());
     }
 
     /**
@@ -62,10 +62,11 @@ class LinhaController extends Controller
      * @param  \App\Model\Linha  $linha
      * @return \Illuminate\Http\Response
      */
-    public function show(Linha $linha)
+    public function show(TipoCabelo $tipos_cabelo)
     {
+        
         //
-        return new LinhaResource($this->linha->get($linha->id));
+        return new TipoCabeloResource($this->tipoCabelo->get($tipos_cabelo->id));
     }
 
     /**
@@ -102,21 +103,9 @@ class LinhaController extends Controller
         //
     }
 
-    /**
-     * 
-     */
-    public function linhasRecomendadas(TipoCabelo $tipos_cabelo)
-    {
-
-        return LinhaCollection::collection($tipos_cabelo->linhas);
-    }
-
-    /**
-     * 
-     */
     public function exibirNaLoja(String $opcao)
     {
-
-        return response()->json($this->linha->exibirNaLoja($opcao)); 
+        //
+        return response()->json($this->tipoCabelo->exibirNaLoja($opcao)); 
     }
 }

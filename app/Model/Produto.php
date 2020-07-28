@@ -11,7 +11,7 @@ class Produto extends Model
     //
     protected $fillable = array(
         'id', 
-        'codigo', 
+        'sku',  
         'codigo_barras', 
         'identificador_url', 
         'nome', 

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Linha;
+namespace App\Http\Resources\TipoCabelo;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class LinhaResource extends JsonResource
+class TipoCabeloResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,19 +19,18 @@ class LinhaResource extends JsonResource
             'identificador_url'  => $this->identificador_url,
             'nome'               => $this->nome,
             'descricao'          => $this->descricao,
-            'principal_funcao'   => $this->principal_funcao,
             'titulo_para_seo'    => $this->titulo_para_seo,
             'palavras_chave'     => $this->palavras_chave,
             'descricao_para_seo' => $this->descricao_para_seo,  
             'exibir_na_loja'     => $this->exibir_na_loja,  
             
             'ref1' => [
-                'href'  => route('linhas.index'),
+                'href'  => route('tipos-cabelos.index'),
             ],
-            
+
             'ref2' => [
-                'href'  => route('produtos-relacionados',$this->id),
+                'href'  => route('linhas-recomendadas',$this->id),
             ],
-        ];
+        ];   
     }
 }

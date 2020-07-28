@@ -116,11 +116,27 @@ class ProdutoController extends Controller
     /**
      * 
      */
-    public function produtos(Linha $linha)
+    public function produtosRelacionados(Linha $linha)
     {
         
-        //return ProdutoResource::collection($linha->produtos);
-        //return new ProdutoResource($linha->produtos);
         return ProdutoCollection::collection($linha->produtos);
+    }
+
+    /**
+     * 
+     */
+    public function exibirNaLoja(String $opcao)
+    {
+
+        return response()->json($this->produto->exibirNaLoja($opcao)); 
+    }
+
+    /**
+     * 
+     */
+    public function freteGratis(String $opcao)
+    {
+        
+        return response()->json($this->produto->freteGratis($opcao)); 
     }
 }

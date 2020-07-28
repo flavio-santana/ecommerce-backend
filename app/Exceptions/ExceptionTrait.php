@@ -58,7 +58,7 @@ trait ExceptionTrait
 
         return response()->json([
 
-            'error' => 'Produto não encontrado!'
+            'error' => 'Model não encontrado!'
         
         ],Response::HTTP_NOT_FOUND);
     }

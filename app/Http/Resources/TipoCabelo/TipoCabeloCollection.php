@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Linha;
+namespace App\Http\Resources\TipoCabelo;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class LinhaCollection extends JsonResource
+class TipoCabeloCollection extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -17,12 +17,10 @@ class LinhaCollection extends JsonResource
         return [
             'nome'               => $this->nome,
             'descricao'          => $this->descricao,
-            'principal_funcao'   => $this->principal_funcao,
-            
+            //'principal_funcao'   => $this->principal_funcao,
             'ref' => [
-                'href'  => route('linhas.show',$this->id),
-            ],
-              
+                'href'  => route('tipos-cabelos.show',$this->id),
+            ],  
         ];
     }
 }
