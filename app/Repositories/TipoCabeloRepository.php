@@ -5,6 +5,7 @@ namespace App\Repositories;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Model\TipoCabelo;
+use App\Model\LinhaRecomendada;
 
 /**
  * 
@@ -85,6 +86,28 @@ class TipoCabeloRepository implements TipoCabeloRepositoryInterface
     public function exibirNaLoja(String $opcao)
     {
         return TipoCabelo::where('exibir_na_loja','=',$opcao)->get();
+    }
+    
+        
+    /**
+     * produtosRecomendados
+     *
+     * @param  mixed $id
+     * @return void
+     */
+    public function produtosRecomendados($id)
+    {
+        
+        //
+        return LinhaRecomendada::where('tipo_cabelo_id',$id)
+            ->select(['produtos.id',
+                    'produtos.sku', 
+                    'produtos.identificador_url', 
+                    'produtos.nome', 
+                    'produtos.descricao'])
+            ->join('linhas','linha_recomendadas.linha_id','linhas.id')
+            ->join('produtos','produtos.linha_id','linhas.id')
+            ->get();
     }
 
 }

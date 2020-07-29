@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Repositories\TipoCabeloRepository;
 use App\Http\Resources\TipoCabelo\TipoCabeloResource;
 use App\Http\Resources\TipoCabelo\TipoCabeloCollection;
+use App\Http\Resources\Produto\ProdutoCollection;
 
 class TipoCabeloController extends Controller
 {
@@ -107,5 +108,17 @@ class TipoCabeloController extends Controller
     {
         //
         return response()->json($this->tipoCabelo->exibirNaLoja($opcao)); 
+    }
+    
+    /**
+     * produtosRecomendados
+     *
+     * @param  TipoCabelo $tipos_cabelo
+     * @return json
+     */
+    public function produtosRecomendados(TipoCabelo $tipos_cabelo)
+    {
+        //return $this->tipoCabelo->produtosRecomendados($tipos_cabelo->id);
+        return ProdutoCollection::collection($this->tipoCabelo->produtosRecomendados($tipos_cabelo->id));
     }
 }

@@ -20,9 +20,7 @@ class TipoCabelo extends Model
         'exibir_na_loja',
     );
 
-    /**
-     * 
-     */
+    /*
     public function linhas()
     {
         return $this->hasMany(LinhaRecomendada::class)
@@ -38,4 +36,6 @@ class TipoCabelo extends Model
                         'linhas.updated_at'])
             ->join('linhas','linha_recomendadas.linha_id','linhas.id');
     }
+    */
+
 }

@@ -24,9 +24,9 @@ class CreatePaginasTable extends Migration
             
             $table->text('descricao',500);
             
-            $table->char('palavras_chave',255);
+            $table->text('palavras_chave',500);
             
-            $table->char('titulo_para_seo',60);
+            $table->char('titulo_para_seo',100);
             
             $table->text('descricao_para_seo',320);
      
@@ -34,6 +34,7 @@ class CreatePaginasTable extends Migration
             
         });
         */
+
     }
 
     /**

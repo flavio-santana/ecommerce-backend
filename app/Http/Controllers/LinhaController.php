@@ -105,18 +105,10 @@ class LinhaController extends Controller
     /**
      * 
      */
-    public function linhasRecomendadas(TipoCabelo $tipos_cabelo)
-    {
-
-        return LinhaCollection::collection($tipos_cabelo->linhas);
-    }
-
-    /**
-     * 
-     */
     public function exibirNaLoja(String $opcao)
     {
 
         return response()->json($this->linha->exibirNaLoja($opcao)); 
     }
+    
 }

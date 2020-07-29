@@ -29,7 +29,7 @@ class TipoCabeloResource extends JsonResource
             ],
 
             'ref2' => [
-                'href'  => route('linhas-recomendadas',$this->id),
+                'href'  => route('produtos-recomendados',$this->id),
             ],
         ];   
     }
