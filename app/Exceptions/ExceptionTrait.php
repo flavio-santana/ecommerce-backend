@@ -12,8 +12,13 @@ use Illuminate\Database\QueryException;
  */
 trait ExceptionTrait 
 {
+        
     /**
-     * 
+     * apiException
+     *
+     * @param  mixed $request
+     * @param  mixed $e
+     * @return void
      */
     public function apiException($request, $e)
     {
@@ -41,7 +46,10 @@ trait ExceptionTrait
     }
 
     /**
-     * 
+     * isModel
+     *
+     * @param  mixed $e
+     * @return void
      */
     public function isModel($e)
     {
@@ -50,34 +58,49 @@ trait ExceptionTrait
     }
 
     /**
-     * 
+     * isHttp
+     *
+     * @param  mixed $e
+     * @return void
      */
     public function isHttp($e)
     {
 
         return $e instanceof NotFoundHttpException; 
     }
-
+    
+    /**
+     * isQueryException
+     *
+     * @param  mixed $e
+     * @return void
+     */
     public function isQueryException($e)
     {
         return $e instanceof QueryException;
     }
-
+ 
     /**
-     * 
+     * ModelResponse
+     *
+     * @param  mixed $e
+     * @return void
      */
     public function ModelResponse($e)
     {
 
         return response()->json([
 
-            'error' => 'Model não encontrado!'
+            'error' => 'Registro não encontrado!'
         
         ],Response::HTTP_NOT_FOUND);
     }
-
+    
     /**
-     * 
+     * HttpResponse
+     *
+     * @param  mixed $e
+     * @return void
      */
     public function HttpResponse($e)
     {
@@ -88,7 +111,13 @@ trait ExceptionTrait
         
         ],Response::HTTP_NOT_FOUND);
     }
-
+    
+    /**
+     * QueryExceptionResponse
+     *
+     * @param  mixed $e
+     * @return void
+     */
     public function QueryExceptionResponse($e)
     {
         
