@@ -53,7 +53,9 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
+        
         //
+        return response()->json($this->usuario->save($request));
     }
 
     /**
@@ -77,7 +79,7 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, Usuario $usuario)
     {
-        
+
         //
         return response()->json($this->usuario->update($usuario->id, $request)); 
     }

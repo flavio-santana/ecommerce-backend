@@ -65,7 +65,7 @@ class UsuarioRepository implements UsuarioRepositoryInterface
      */
     public function update($id, $json)
     {
-        
+        // json to array
         $data = [
             'nome' => $json->{'nome'},
 
@@ -113,6 +113,67 @@ class UsuarioRepository implements UsuarioRepositoryInterface
             ];
         } 
         
+        return $data;
+    }
+
+        
+    /**
+     * save
+     *
+     * @param  mixed $json
+     * @return void
+     */
+    public function save($json)
+    {
+
+        // json to array
+        $data = [
+
+            'nome' => $json->{'nome'},
+
+            'data_nascimento' => $json->{'data_nascimento'},
+            
+            'cpf' => $json->{'cpf'},
+            
+            'email' => $json->{'email'},
+            
+            'telefone' => $json->{'telefone'},
+            
+            'whatsapp' => $json->{'whatsapp'},
+            
+            'genero' => $json->{'genero'},
+
+            'endereco' => $json->{'endereco'},
+
+            'complemento' => $json->{'complemento'},
+            
+            'bairro' => $json->{'bairro'},
+            
+            'cep' => $json->{'cep'},
+
+            'cidade' => $json->{'cidade'},
+            
+            'uf' => $json->{'uf'},
+
+            'origem' => $json->{'origem'},
+
+            'publicado' => $json->{'publicado'}
+        ];
+
+        $user = Usuario::create($data);
+
+        if ($user){
+            $data=[
+                'status'=>'1',
+                'msg'=>'success'
+            ];
+        }else{
+            $data=[
+                'status'=>'0',
+                'msg'=>'fail'
+            ];
+        } 
+
         return $data;
     }
     
