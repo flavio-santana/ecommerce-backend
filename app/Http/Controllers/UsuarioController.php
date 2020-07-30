@@ -77,50 +77,9 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, Usuario $usuario)
     {
+        
         //
-        //dd($request);
-        //return response()->json($request);
-        //return response()->json($usuario);
-
-        //$obj = json_decode($request);
-
-        //dd($obj['nome']]);
-        //print $request->{'nome'};
-
-        $data = [
-            'nome' => $request->{'nome'},
-
-            'data_nascimento' => $request->{'data_nascimento'},
-            
-            'cpf' => $request->{'cpf'},
-            
-            'email' => $request->{'email'},
-            
-            'telefone' => $request->{'telefone'},
-            
-            'whatsapp' => $request->{'whatsapp'},
-            
-            'genero' => $request->{'genero'},
-
-            'endereco' => $request->{'endereco'},
-
-            'complemento' => $request->{'complemento'},
-            
-            'bairro' => $request->{'bairro'},
-            
-            'cep' => $request->{'cep'},
-
-            'cidade' => $request->{'cidade'},
-            
-            'uf' => $request->{'uf'},
-
-            'origem' => $request->{'origem'},
-
-            'publicado' => $request->{'publicado'}
-        ];
-
-        //
-        return response()->json($this->usuario->update($usuario->id, $data)); 
+        return response()->json($this->usuario->update($usuario->id, $request)); 
     }
 
     /**

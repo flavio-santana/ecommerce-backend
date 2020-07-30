@@ -63,10 +63,57 @@ class UsuarioRepository implements UsuarioRepositoryInterface
      * @param int
      * @param array
      */
-    public function update($id, array $data)
+    public function update($id, $json)
     {
+        
+        $data = [
+            'nome' => $json->{'nome'},
+
+            'data_nascimento' => $json->{'data_nascimento'},
+            
+            'cpf' => $json->{'cpf'},
+            
+            'email' => $json->{'email'},
+            
+            'telefone' => $json->{'telefone'},
+            
+            'whatsapp' => $json->{'whatsapp'},
+            
+            'genero' => $json->{'genero'},
+
+            'endereco' => $json->{'endereco'},
+
+            'complemento' => $json->{'complemento'},
+            
+            'bairro' => $json->{'bairro'},
+            
+            'cep' => $json->{'cep'},
+
+            'cidade' => $json->{'cidade'},
+            
+            'uf' => $json->{'uf'},
+
+            'origem' => $json->{'origem'},
+
+            'publicado' => $json->{'publicado'}
+        ];
+        
         //
-        return Usuario::find($id)->update($data);
+        $answer = Usuario::find($id)->update($data);
+
+        if ($answer){
+            $data=[
+                'status'=>'1',
+                'msg'=>'success'
+            ];
+        }else{
+            $data=[
+                'status'=>'0',
+                'msg'=>'fail'
+            ];
+        } 
+        
+        return $data;
     }
     
     /**
