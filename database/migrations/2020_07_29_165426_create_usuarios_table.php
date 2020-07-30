@@ -43,6 +43,10 @@ class CreateUsuariosTable extends Migration
 
             $table->char('uf',2);
 
+            $table->char('origem',30);
+
+            $table->enum('publicado', ['Nao', 'Sim']);
+
             $table->timestamps();
         });
     }

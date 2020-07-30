@@ -35,5 +35,9 @@ $factory->define(Usuario::class, function (Faker $faker) {
         'cidade' => $faker->city,
 
         'uf' => $faker->stateAbbr,
+
+        'origem' => $faker->randomElement($array = array ('Ecommerce', 'Consultora')),
+
+        'publicado' => $faker->randomElement($array = array ('Nao', 'Sim')),
     ];
 });

@@ -108,7 +108,7 @@ class ProdutoController extends Controller
     {
 
         //
-        $data = $this->produto->destroy($produto->id); 
+        $data = $this->produto->delete($produto->id); 
         
         return response()->json($data);
     }

@@ -23,3 +23,6 @@ Route::apiResource('/linhas','LinhaController');
 Route::get('/linhas/{linha}/produtos', 'ProdutoController@produtosRelacionados')->name('produtos-relacionados');
 // Retorna uma lista de produtos, conforme o valor(sim, nao) passado. 
 Route::get('/linhas/exibir-na-loja/{opcao}','LinhaController@exibirNaLoja');
+
+//
+Route::apiResource('/usuarios','UsuarioController');
