@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Database\QueryException;
 
 /**
  * 
@@ -29,6 +30,13 @@ trait ExceptionTrait
             return $this->HttpResponse($e); 
         }
 
+        if($this->isQueryException($e)){
+
+            //
+            return $this->QueryExceptionResponse($e);
+
+        }
+
         return parent::render($request, $e);
     }
 
@@ -48,6 +56,11 @@ trait ExceptionTrait
     {
 
         return $e instanceof NotFoundHttpException; 
+    }
+
+    public function isQueryException($e)
+    {
+        return $e instanceof QueryException;
     }
 
     /**
@@ -72,6 +85,16 @@ trait ExceptionTrait
         return response()->json([
 
             'error' => 'Rota não encontrada!'
+        
+        ],Response::HTTP_NOT_FOUND);
+    }
+
+    public function QueryExceptionResponse($e)
+    {
+        
+        return response()->json([
+
+            'error' => 'Table not found!'
         
         ],Response::HTTP_NOT_FOUND);
     }

@@ -61,7 +61,10 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
 
-        //dd($exception);
+        
+
+        //if ($exception instanceof QueryException)
+        //    dd($exception);
 
         /**
          * Para validar os erros chamda o endpoint através do navegador,
