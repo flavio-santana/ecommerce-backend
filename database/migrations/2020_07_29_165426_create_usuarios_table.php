@@ -31,21 +31,9 @@ class CreateUsuariosTable extends Migration
 
             $table->enum('genero', ['F', 'M']);
 
-            $table->char('endereco',100);
-
-            $table->char('complemento',30);
-
-            $table->char('cep',10);
-
-            $table->char('bairro',100);
-
-            $table->char('cidade',100);
-
-            $table->char('uf',2);
-
             $table->char('origem',30);
 
-            $table->enum('publicado', ['Nao', 'Sim']);
+            $table->enum('ativo', ['Nao', 'Sim']);
 
             $table->timestamps();
         });

@@ -8,7 +8,9 @@ use App\Http\Resources\Usuario\UsuarioCollection;
 use App\Http\Resources\Usuario\UsuarioResource;
 use App\Repositories\UsuarioRepository;
 
-
+/**
+ * UsuarioController
+ */
 class UsuarioController extends Controller
 {
 
@@ -96,5 +98,15 @@ class UsuarioController extends Controller
         $data = $this->usuario->delete($usuario->id); 
         
         return response()->json($data);
+    }
+    
+    /**
+     * usuarioEnderecos
+     *
+     * @return void
+     */
+    public function usuarioEnderecos(Usuario $usuario)
+    {
+        return response()->json($usuario->enderecos);
     }
 }

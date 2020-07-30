@@ -24,20 +24,8 @@ $factory->define(Usuario::class, function (Faker $faker) {
         
         'genero' => $faker->randomElement($array = array ('F', 'M')),
 
-        'endereco' => $faker->streetAddress,
-        
-        'complemento' => $faker->secondaryAddress,
-        
-        'cep' => $faker->numerify('#####-###'), // 36572-258',
-
-        'bairro' => $faker->state,
-
-        'cidade' => $faker->city,
-
-        'uf' => $faker->stateAbbr,
-
         'origem' => $faker->randomElement($array = array ('Ecommerce', 'Consultora')),
 
-        'publicado' => $faker->randomElement($array = array ('Nao', 'Sim')),
+        'ativo' => $faker->randomElement($array = array ('Nao', 'Sim')),
     ];
 });

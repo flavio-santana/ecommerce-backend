@@ -30,7 +30,7 @@ class LinhaResource extends JsonResource
             ],
             
             'ref2' => [
-                'href'  => route('produtos-relacionados',$this->id),
+                'href'  => route('produtos.relacionados',$this->id),
             ],
         ];
     }

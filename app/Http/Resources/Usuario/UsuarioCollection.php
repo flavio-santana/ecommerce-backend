@@ -25,6 +25,10 @@ class UsuarioCollection extends JsonResource
                 'href'  => route('usuarios.show', $this->id),
             ],
 
+            'ref2' => [
+                'href'  => route('usuario.enderecos', $this->id),
+            ],
+
         ];
     }
 }
