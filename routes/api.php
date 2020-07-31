@@ -20,7 +20,7 @@ Route::get('/tipos-cabelos/{tipos_cabelo}/produtos-recomendados', 'TipoCabeloCon
 //
 Route::apiResource('/linhas','LinhaController');
 // Retorna todos os produtos relacionados a uma linha
-Route::get('/linhas/{linha}/produtos', 'ProdutoController@produtosRelacionados')->name('produtos.relacionados');
+Route::get('/linhas/{linha}/produtos', 'LinhaController@linhaProdutos')->name('linha.produtos');
 // Retorna uma lista de produtos, conforme o valor(sim, nao) passado. 
 Route::get('/linhas/exibir-na-loja/{opcao}','LinhaController@exibirNaLoja');
 

@@ -114,25 +114,22 @@ class ProdutoController extends Controller
     }
 
     /**
-     * 
-     */
-    public function produtosRelacionados(Linha $linha)
-    {
-        
-        return ProdutoCollection::collection($linha->produtos);
-    }
-
-    /**
-     * 
+     * exibirNaLoja
+     *
+     * @param  mixed $opcao
+     * @return void
      */
     public function exibirNaLoja(String $opcao)
     {
 
         return response()->json($this->produto->exibirNaLoja($opcao)); 
     }
-
+    
     /**
-     * 
+     * freteGratis
+     *
+     * @param  mixed $opcao
+     * @return void
      */
     public function freteGratis(String $opcao)
     {

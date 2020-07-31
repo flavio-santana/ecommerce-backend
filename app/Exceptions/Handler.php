@@ -9,7 +9,7 @@ use Throwable;
 //use Illuminate\Database\Eloquent\ModelNotFoundException;
 //use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 //use Symfony\Component\HttpFoundation\Response;
-
+//use Symfony\Component\Routing\Exception\RouteNotFoundException;
 //use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Handler extends ExceptionHandler
@@ -61,6 +61,12 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
 
+        /*
+        if($exception instanceof RouteNotFoundException){
+            dd('RouteNotFoundException');
+        }
+        */
+        
         /**
          * Para validar os erros chamda o endpoint através do navegador,
          * desabilitar a validação if($request->expectsJson()) 

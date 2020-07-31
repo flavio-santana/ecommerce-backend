@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Repositories\LinhaRepository;
 use App\Http\Resources\Linha\LinhaResource;
 use App\Http\Resources\Linha\LinhaCollection; 
+use App\Http\Resources\Produto\ProdutoCollection; 
 
 class LinhaController extends Controller
 {
@@ -101,14 +102,29 @@ class LinhaController extends Controller
     {
         //
     }
-
+    
     /**
-     * 
+     * exibirNaLoja
+     *
+     * @param  mixed $opcao
+     * @return void
      */
     public function exibirNaLoja(String $opcao)
     {
 
         return response()->json($this->linha->exibirNaLoja($opcao)); 
+    }
+    
+    /**
+     * produtosRelacionados
+     *
+     * @param  mixed $linha
+     * @return void
+     */
+    public function linhaProdutos(Linha $linha)
+    {
+        
+        return ProdutoCollection::collection($linha->produtos);
     }
     
 }
