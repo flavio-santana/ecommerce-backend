@@ -15,9 +15,10 @@ class UsuarioCollection extends JsonResource
     public function toArray($request)
     {
         return [
-            'nome'     => $this->nome,
-            'email'    => $this->email,
-            'telefone' => $this->telefone,
+            'nome'      => $this->nome,
+            'email'     => $this->email,
+            'telefone'  => $this->telefone,
+            'enderecos' => $this->enderecos->count() > 0 ? $this->enderecos->count() : 'Este usuário não possui endereços',
             'ref1' => [
                 'href'  => route('usuarios.show', $this->id),
             ],

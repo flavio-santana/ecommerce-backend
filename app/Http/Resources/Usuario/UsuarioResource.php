@@ -24,6 +24,7 @@ class UsuarioResource extends JsonResource
             'whatsapp'        => $this->whatsapp,
             'genero'          => $this->genero,
             'origem'          => $this->origem,
+            'enderecos'       => $this->enderecos->count() > 0 ? $this->enderecos->count() : 'Este usuário não possui endereços',
             'ativo'           => $this->ativo,
 
             'ref1' => [

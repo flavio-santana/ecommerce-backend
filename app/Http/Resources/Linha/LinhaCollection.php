@@ -15,9 +15,10 @@ class LinhaCollection extends JsonResource
     public function toArray($request)
     {
         return [
-            'nome'               => $this->nome,
-            'descricao'          => $this->descricao,
-            'principal_funcao'   => $this->principal_funcao,
+            'nome'             => $this->nome,
+            'descricao'        => $this->descricao,
+            'principal_funcao' => $this->principal_funcao,
+            'produtos'         => $this->produtos->count() > 0 ? $this->produtos->count() : 'Está linha não possui produtos',
             
             'ref' => [
                 'href'  => route('linhas.show',$this->id),

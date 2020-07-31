@@ -22,7 +22,8 @@ class LinhaResource extends JsonResource
             'principal_funcao'   => $this->principal_funcao,
             'titulo_para_seo'    => $this->titulo_para_seo,
             'palavras_chave'     => $this->palavras_chave,
-            'descricao_para_seo' => $this->descricao_para_seo,  
+            'descricao_para_seo' => $this->descricao_para_seo,
+            'produtos'           => $this->produtos->count() > 0 ? $this->produtos->count() : 'Está linha não possui produtos',  
             'ativo'              => $this->ativo,  
             
             'ref1' => [
