@@ -10,26 +10,9 @@ class Produto extends Model
 {
     //
     protected $fillable = array(
-        'id', 
-        'sku',  
-        'codigo_barras', 
-        'identificador_url', 
-        'nome', 
-        'descricao', 
-        'palavras_chave',
-        'titulo_para_seo',
-        'descricao_para_seo',
-        'preco',
-        'preco_promocional',
-        'peso',
-        'altura',
-        'largura',
-        'comprimento',
-        'estoque',
-        'ativo',
-        'frete_gratis',
-        'created_at',
-        'updated_at',
+        'id', 'sku', 'codigo_barras', 'identificador_url', 'nome', 'descricao', 'palavras_chave', 'titulo_para_seo', 
+        'descricao_para_seo', 'preco', 'preco_promocional', 'peso', 'altura', 'largura', 'comprimento', 'estoque', 'ordem',
+        'ativo', 'frete_gratis', 'created_at', 'updated_at',
     );
 
     /**

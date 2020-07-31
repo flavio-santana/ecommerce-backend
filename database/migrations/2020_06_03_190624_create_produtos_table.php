@@ -50,6 +50,8 @@ class CreateProdutosTable extends Migration
             $table->decimal('comprimento', 5, 3);
             
             $table->integer('estoque');
+
+            $table->integer('ordem');
             
             $table->enum('ativo', ['Nao', 'Sim']);
 
