@@ -23,17 +23,15 @@ class UsuarioResource extends JsonResource
             'telefone'        => $this->telefone,
             'whatsapp'        => $this->whatsapp,
             'genero'          => $this->genero,
-            'endereco'        => $this->endereco,
-            'complemento'     => $this->complemento,
-            'bairro'          => $this->bairro,
-            'cep'             => $this->cep,
-            'cidade'          => $this->cidade,
-            'uf'              => $this->uf,
             'origem'          => $this->origem,
-            'publicado'       => $this->publicado,
+            'ativo'           => $this->ativo,
 
             'ref1' => [
                 'href'  => route('usuarios.index'),
+            ],
+
+            'ref2' => [
+                'href'  => route('usuario.enderecos', $this->id),
             ],
 
         ];

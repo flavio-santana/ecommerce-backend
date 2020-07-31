@@ -81,21 +81,9 @@ class UsuarioRepository implements UsuarioRepositoryInterface
             
             'genero' => $json->{'genero'},
 
-            'endereco' => $json->{'endereco'},
-
-            'complemento' => $json->{'complemento'},
-            
-            'bairro' => $json->{'bairro'},
-            
-            'cep' => $json->{'cep'},
-
-            'cidade' => $json->{'cidade'},
-            
-            'uf' => $json->{'uf'},
-
             'origem' => $json->{'origem'},
 
-            'publicado' => $json->{'publicado'}
+            'ativo' => $json->{'ativo'}
         ];
         
         //

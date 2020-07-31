@@ -18,17 +18,9 @@ class UsuarioCollection extends JsonResource
             'nome'     => $this->nome,
             'email'    => $this->email,
             'telefone' => $this->telefone,
-            'cidade'   => $this->cidade,
-            'uf'       => $this->uf,
-
             'ref1' => [
                 'href'  => route('usuarios.show', $this->id),
             ],
-
-            'ref2' => [
-                'href'  => route('usuario.enderecos', $this->id),
-            ],
-
         ];
     }
 }

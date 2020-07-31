@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\Usuario\UsuarioCollection;
 use App\Http\Resources\Usuario\UsuarioResource;
 use App\Repositories\UsuarioRepository;
+use App\Http\Resources\Endereco\EnderecoCollection;
 
 /**
  * UsuarioController
@@ -107,6 +108,7 @@ class UsuarioController extends Controller
      */
     public function usuarioEnderecos(Usuario $usuario)
     {
-        return response()->json($usuario->enderecos);
+        //return response()->json($usuario->enderecos);
+        return EnderecoCollection::collection($usuario->enderecos);
     }
 }
