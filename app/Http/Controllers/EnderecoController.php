@@ -2,11 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Endereco;
+use App\Model\Endereco;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+use App\Repositories\EnderecoRepository;
+use App\Http\Resources\Endereco\EnderecoCollection;
+use App\Http\Resources\Endereco\EnderecoResource;
 
+/**
+ * EnderecoController
+ */
 class EnderecoController extends Controller
 {
+
+    protected $endereco;
+
+    /**
+     * __construct
+     *
+     * @param  mixed $endereco
+     * @return void
+     */
+    public function __construct(EnderecoRepository $endereco)
+    {
+        $this->endereco = $endereco;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +36,7 @@ class EnderecoController extends Controller
     public function index()
     {
         //
+        return EnderecoCollection::collection($this->endereco->all());
     }
 
     /**
@@ -47,6 +69,7 @@ class EnderecoController extends Controller
     public function show(Endereco $endereco)
     {
         //
+        return new EnderecoResource($this->endereco->get($endereco->id));
     }
 
     /**
@@ -70,6 +93,7 @@ class EnderecoController extends Controller
     public function update(Request $request, Endereco $endereco)
     {
         //
+        return response()->json($this->endereco->update($endereco->id, $request)); 
     }
 
     /**

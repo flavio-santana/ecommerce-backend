@@ -23,6 +23,6 @@ $factory->define(Linha::class, function (Faker $faker) {
 
         'descricao_para_seo' => $faker->text,
 
-        'exibir_na_loja' => $faker->randomElement($array = array ('Nao', 'Sim')),
+        'ativo' => $faker->randomElement($array = array ('Nao', 'Sim')),
     ];
 });

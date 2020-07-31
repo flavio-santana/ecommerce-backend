@@ -85,7 +85,7 @@ class TipoCabeloRepository implements TipoCabeloRepositoryInterface
      */
     public function exibirNaLoja(String $opcao)
     {
-        return TipoCabelo::where('exibir_na_loja','=',$opcao)->get();
+        return TipoCabelo::where('ativo','=',$opcao)->get();
     }
     
         

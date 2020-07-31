@@ -15,6 +15,7 @@ class EnderecoCollection extends JsonResource
     public function toArray($request)
     {
         return [
+            'id'          => $this->id,
             'logradouro'  => $this->logradouro,
             'complemento' => $this->complemento,
             'cep'         => $this->cep,

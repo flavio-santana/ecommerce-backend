@@ -51,7 +51,7 @@ class CreateProdutosTable extends Migration
             
             $table->integer('estoque');
             
-            $table->enum('exibir_na_loja', ['Nao', 'Sim']);
+            $table->enum('ativo', ['Nao', 'Sim']);
 
             $table->enum('frete_gratis', ['Nao', 'Sim']);
             

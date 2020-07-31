@@ -9,6 +9,12 @@ class BackendServiceProvider extends ServiceProvider
 
     public function register()
     {
+       
+        $this->app->bind(
+            'App\Repositories\EnderecoRepositoryInterface',
+            'App\Repositories\EnderecoRepository'
+        );
+       
         $this->app->bind(
             'App\Repositories\LinhaRepositoryInterface',
             'App\Repositories\LinhaRepository'

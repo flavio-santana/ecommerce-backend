@@ -85,7 +85,7 @@ class LinhaRepository implements LinhaRepositoryInterface
      */
     public function exibirNaLoja(String $opcao)
     {
-        return Linha::where('exibir_na_loja','=',$opcao)->get();
+        return Linha::where('ativo','=',$opcao)->get();
     }
 
 }

@@ -23,7 +23,7 @@ class LinhaResource extends JsonResource
             'titulo_para_seo'    => $this->titulo_para_seo,
             'palavras_chave'     => $this->palavras_chave,
             'descricao_para_seo' => $this->descricao_para_seo,  
-            'exibir_na_loja'     => $this->exibir_na_loja,  
+            'ativo'              => $this->ativo,  
             
             'ref1' => [
                 'href'  => route('linhas.index'),

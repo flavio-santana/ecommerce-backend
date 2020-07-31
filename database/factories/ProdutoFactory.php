@@ -47,7 +47,7 @@ $factory->define(Produto::class, function (Faker $faker) {
         
         'estoque' => $faker->randomNumber($nbDigits = NULL, $strict = false),
 
-        'exibir_na_loja' => $faker->randomElement($array = array ('Nao', 'Sim')),
+        'ativo' => $faker->randomElement($array = array ('Nao', 'Sim')),
 
         'frete_gratis' => $faker->randomElement($array = array ('Nao', 'Sim')),
 

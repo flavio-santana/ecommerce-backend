@@ -26,7 +26,7 @@ class Produto extends Model
         'largura',
         'comprimento',
         'estoque',
-        'exibir_na_loja',
+        'ativo',
         'frete_gratis',
         'created_at',
         'updated_at',

@@ -17,7 +17,7 @@ class Linha extends Model
         'titulo_para_seo', 
         'palavras_chave',
         'descricao_para_seo',
-        'exibir_na_loja',
+        'ativo',
     );
 
     /**

@@ -17,7 +17,7 @@ class TipoCabelo extends Model
         'palavras_chave',
         'titulo_para_seo',
         'descricao_para_seo',
-        'exibir_na_loja',
+        'ativo',
     );
 
     /*

@@ -23,7 +23,7 @@ class CreateEnderecosTable extends Migration
             
             $table->char('logradouro',100);
 
-            $table->char('complemento',30);
+            $table->char('complemento',30)->nullable();
 
             $table->char('cep',10);
 

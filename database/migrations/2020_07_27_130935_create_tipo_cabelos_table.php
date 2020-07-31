@@ -29,7 +29,7 @@ class CreateTipoCabelosTable extends Migration
             
             $table->text('descricao_para_seo',320);
 
-            $table->enum('exibir_na_loja', ['Nao', 'Sim']);
+            $table->enum('ativo', ['Nao', 'Sim']);
 
 
             $table->timestamps();

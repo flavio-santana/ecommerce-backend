@@ -78,7 +78,7 @@ class ProdutoRepository implements ProdutoRepositoryInterface
 
     public function exibirNaLoja(String $opcao)
     {
-        return Produto::where('exibir_na_loja','=',$opcao)->get();
+        return Produto::where('ativo','=',$opcao)->get();
     }
 
     /**

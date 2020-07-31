@@ -32,7 +32,7 @@ class ProdutoResource extends JsonResource
             'largura'            => $this->largura,
             'comprimento'        => $this->comprimento,
             'estoque'            => $this->estoque,
-            'exibir_na_loja'     => $this->exibir_na_loja,
+            'ativo'              => $this->ativo,
             'frete_gratis'       => $this->frete_gratis,
               
             'ref1' => [
