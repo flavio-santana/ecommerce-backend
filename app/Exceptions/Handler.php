@@ -61,12 +61,6 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
 
-        /*
-        if($exception instanceof RouteNotFoundException){
-            dd('RouteNotFoundException');
-        }
-        */
-        
         /**
          * Para validar os erros chamda o endpoint através do navegador,
          * desabilitar a validação if($request->expectsJson()) 

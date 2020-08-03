@@ -42,6 +42,10 @@ class ProdutoResource extends JsonResource
             'ref2' => [
                 'href'  => route('linha.produtos',$this->linha_id),
             ],
+
+            'ref3' => [
+                'href'  => route('produto.variacoes',$this->id),
+            ],
         ];
     }
 }

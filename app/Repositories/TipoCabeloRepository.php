@@ -95,11 +95,11 @@ class TipoCabeloRepository implements TipoCabeloRepositoryInterface
      * @param  mixed $id
      * @return void
      */
-    public function produtosRecomendados($id)
+    public function produtosRecomendados(int $tipo_cabelo_id)
     {
         
         //
-        return LinhaRecomendada::where('tipo_cabelo_id',$id)
+        return LinhaRecomendada::where('tipo_cabelo_id',$tipo_cabelo_id)
             ->select(['produtos.id',
                     'produtos.sku', 
                     'produtos.identificador_url', 

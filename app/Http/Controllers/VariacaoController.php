@@ -4,9 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Model\Variacao;
 use Illuminate\Http\Request;
+use App\Http\Resources\Variacao\VariacaoCollection;
+use App\Http\Resources\Variacao\VariacaoResource;
+use App\Repositories\VariacaoRepository;
 
+/**
+ * VariacaoController
+ */
 class VariacaoController extends Controller
 {
+
+    protected $variacao;
+
+        
+    /**
+     * __construct
+     *
+     * @param  mixed $variacao
+     * @return void
+     */
+    public function __construct(VariacaoRepository $variacao)
+    {
+        $this->variacao = $variacao;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +36,7 @@ class VariacaoController extends Controller
     public function index()
     {
         //
+        return VariacaoCollection::collection($this->variacao->all()->sortBy('produto_id')); 
     }
 
     /**
@@ -44,9 +66,10 @@ class VariacaoController extends Controller
      * @param  \App\Model\Variacao  $variacao
      * @return \Illuminate\Http\Response
      */
-    public function show(Variacao $variacao)
+    public function show(Variacao $variaco)
     {
         //
+        return new VariacaoResource($this->variacao->get($variaco->id));
     }
 
     /**

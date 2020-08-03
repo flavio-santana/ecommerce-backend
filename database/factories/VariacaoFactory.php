@@ -22,6 +22,8 @@ $factory->define(Variacao::class, function (Faker $faker) {
             
         },
 
+        'descricao' => $faker->randomElement($array = array ('300ml', '500ml', '1l')),
+
         'ordem' => $faker->randomDigitNotNull,
     ];
 });

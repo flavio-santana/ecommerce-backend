@@ -8,7 +8,7 @@ class Variacao extends Model
 {
     //
     protected $fillable = array(
-        'id', 'produto_id', 'variacao', 'ordem',
+        'id', 'produto_id', 'variacao', 'descricao', 'ordem',
     );
 
 }

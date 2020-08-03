@@ -6,13 +6,14 @@ use App\Model\Linha;
 use App\Model\Produto;
 use Illuminate\Http\Request;
 use App\Repositories\ProdutoRepository;
+//use App\Repositories\VariacaoRepository;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\Produto\ProdutoResource; 
 use App\Http\Resources\Produto\ProdutoCollection; 
 
 
 /**
- * 
+ * ProdutoController
  */
 class ProdutoController extends Controller
 {
@@ -135,5 +136,17 @@ class ProdutoController extends Controller
     {
         
         return response()->json($this->produto->freteGratis($opcao)); 
+    }
+    
+    /**
+     * produtoVariacoes
+     *
+     * @param  mixed $produto
+     * @return void
+     */
+    public function produtoVariacoes(Produto $produto)
+    {
+        //
+        return response()->json($this->produto->produtoVariacoes($produto->id));
     }
 }

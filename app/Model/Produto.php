@@ -5,6 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Model\Linha; 
+use App\Model\Variacao; 
 
 class Produto extends Model
 {
@@ -15,11 +16,24 @@ class Produto extends Model
         'ativo', 'frete_gratis', 'created_at', 'updated_at',
     );
 
+        
     /**
-     * 
+     * linha
+     *
+     * @return void
      */
     public function linha()
     {
         $this->belongsTo(Linha::class);
+    }
+    
+    /**
+     * variacoes
+     *
+     * @return void
+     */
+    public function variacoes()
+    {
+        return $this->hasMany(Variacao::class);
     }
 }

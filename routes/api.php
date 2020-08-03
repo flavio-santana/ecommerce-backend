@@ -9,6 +9,8 @@ Route::apiResource('/produtos','ProdutoController');
 Route::get('/produtos/exibir-na-loja/{opcao}','ProdutoController@exibirNaLoja');
 // Retorna uma lista de produtos, conforme o valor(sim, nao) passado. 
 Route::get('/produtos/frete-gratis/{opcao}','ProdutoController@freteGratis');
+//
+Route::get('/produtos/{produto}/variacoes', 'ProdutoController@produtoVariacoes')->name('produto.variacoes');
 
 //
 Route::apiResource('/tipos-cabelos','TipoCabeloController');
@@ -31,3 +33,6 @@ Route::get('/usuarios/{usuario}/enderecos', 'UsuarioController@usuarioEnderecos'
 
 //
 Route::apiResource('/enderecos','EnderecoController');
+
+//
+Route::apiResource('/variacoes','VariacaoController');

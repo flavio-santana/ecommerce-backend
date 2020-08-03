@@ -24,6 +24,8 @@ class CreateVariacaosTable extends Migration
             $table->integer('variacao')->unsigned()->index()
             ->foreign('variacao')->references('id')
             ->on('produto')->onUpdate('cascade');   
+
+            $table->char('descricao',10);
             
             $table->integer('ordem');
 
