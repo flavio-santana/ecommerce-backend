@@ -10,6 +10,7 @@ use App\Repositories\ProdutoRepository;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\Produto\ProdutoResource; 
 use App\Http\Resources\Produto\ProdutoCollection; 
+use App\Http\Resources\Variacao\VariacaoCollection; 
 
 
 /**
@@ -147,6 +148,6 @@ class ProdutoController extends Controller
     public function produtoVariacoes(Produto $produto)
     {
         //
-        return response()->json($this->produto->produtoVariacoes($produto->id));
+        return VariacaoCollection::collection($this->produto->produtoVariacoes($produto->id));
     }
 }

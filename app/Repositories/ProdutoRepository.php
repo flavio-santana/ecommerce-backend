@@ -113,7 +113,7 @@ class ProdutoRepository implements ProdutoRepositoryInterface
     {
         //       
         return Variacao::where('produto_id',$produto_id)
-            ->select(['variacaos.variacao', 'variacaos.descricao', 'variacaos.ordem','produtos.preco'])
+            ->select(['variacaos.id', 'variacaos.produto_id', 'variacaos.variacao', 'variacaos.descricao', 'variacaos.ordem','produtos.preco'])
             ->join('produtos','variacaos.variacao','=','produtos.id')
             ->orderBy('variacaos.ordem')
             ->get();

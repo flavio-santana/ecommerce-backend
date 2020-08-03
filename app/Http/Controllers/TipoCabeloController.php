@@ -118,7 +118,7 @@ class TipoCabeloController extends Controller
      */
     public function produtosRecomendados(TipoCabelo $tipos_cabelo)
     {
-        //return $this->tipoCabelo->produtosRecomendados($tipos_cabelo->id);
+        //
         return ProdutoCollection::collection($this->tipoCabelo->produtosRecomendados($tipos_cabelo->id));
     }
 }
