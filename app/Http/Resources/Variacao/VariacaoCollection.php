@@ -21,7 +21,7 @@ class VariacaoCollection extends JsonResource
             'ordem'      => $this->ordem,
             
             'ref' => [
-                'href'  => route('variacoes.show',$this->produto_id),
+                'href'  => route('variacoes.show',$this->id),
             ],
               
         ];
