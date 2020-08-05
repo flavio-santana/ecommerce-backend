@@ -30,7 +30,7 @@ class CreateItemPedidosTable extends Migration
 
             $table->integer('qtde_unitaria');    
 
-            $table->decimal('valor_unitario', 5, 2);
+            $table->decimal('valor_unitario', 5, 3);
 
             $table->timestamps();
         });

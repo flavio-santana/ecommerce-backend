@@ -32,11 +32,11 @@ class CreatePedidosTable extends Migration
 
             $table->dateTime('data_pagamento')->nullable();    
 
-            $table->enum('pagamento_realizado', ['Nao', 'Sim']);   
-            
-            $table->decimal('valor_frete', 5, 2);
+            //$table->string('cupom_desconto', 30)->nullable();
 
-            $table->string('cupom_desconto', 30);
+            $table->decimal('valor_frete', 5, 3)->nullable();
+
+            $table->enum('pagamento_realizado', ['Nao', 'Sim']);
 
             $table->timestamps();
         });

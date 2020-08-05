@@ -24,7 +24,11 @@ class DatabaseSeeder extends Seeder
 
         factory(App\Model\Endereco::class,203)->create();
 
-        factory(App\Model\Variacao::class,150)->create();
+        factory(App\Model\Variacao::class,151)->create();
+
+        factory(App\Model\Pedido::class,99)->create();
+
+        factory(App\Model\ItemPedido::class,799)->create();
 
     }
 }
