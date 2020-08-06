@@ -27,12 +27,14 @@ class CreatePedidosTable extends Migration
             $table->integer('endereco_id')->unsigned()->index()
                 ->foreign('endereco_id')->references('id')
                 ->on('endereco')->onUpdate('cascade');   
+
+            $table->integer('cupom_id')->unsigned()->index()
+                ->foreign('cupom_id')->references('id')
+                ->on('cupom')->onUpdate('cascade');    
             
             $table->dateTime('data_pedido');
 
             $table->dateTime('data_pagamento')->nullable();    
-
-            //$table->string('cupom_desconto', 30)->nullable();
 
             $table->decimal('valor_frete', 5, 3)->nullable();
 

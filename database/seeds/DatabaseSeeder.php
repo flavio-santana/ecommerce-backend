@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
 
         factory(App\Model\Variacao::class,151)->create();
 
+        factory(App\Model\Cupom::class,11)->create();
+
         factory(App\Model\Pedido::class,99)->create();
 
         factory(App\Model\ItemPedido::class,799)->create();
