@@ -11,6 +11,11 @@ class BackendServiceProvider extends ServiceProvider
     {
        
         $this->app->bind(
+            'App\Repositories\PedidoRepositoryInterface',
+            'App\Repositories\PedidoRepository'
+        );
+
+        $this->app->bind(
             'App\Repositories\EnderecoRepositoryInterface',
             'App\Repositories\EnderecoRepository'
         );

@@ -3,10 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Model\Pedido;
+use App\Model\ItemPedidos;
 use Illuminate\Http\Request;
+use App\Http\Resources\Pedido\PedidoCollection;
+use App\Http\Resources\Pedido\PedidoResource;
+use App\Repositories\PedidoRepository;
+use App\Http\Resources\ItemPedidos\ItemPedidosCollection;
 
+/**
+ * PedidoController
+ */
 class PedidoController extends Controller
 {
+
+    protected $pedido;
+
+    /**
+     * __construct
+     *
+     * @param  mixed $pedido
+     * @return void
+     */
+    public function __construct(PedidoRepository $pedido)
+    {
+        $this->pedido = $pedido;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +37,8 @@ class PedidoController extends Controller
     public function index()
     {
         //
+        return PedidoCollection::collection($this->pedido->all());
+        //return PedidoResource::collection($this->pedido->all());
     }
 
     /**
@@ -47,6 +71,7 @@ class PedidoController extends Controller
     public function show(Pedido $pedido)
     {
         //
+        return new PedidoResource($this->pedido->get($pedido->id));
     }
 
     /**
@@ -81,5 +106,17 @@ class PedidoController extends Controller
     public function destroy(Pedido $pedido)
     {
         //
+    }
+    
+    /**
+     * pedidoItens
+     *
+     * @param  mixed $pedido
+     * @return void
+     */
+    public function itemPedidos(Pedido $pedido)
+    {
+        //
+        return response()->json(ItemPedidosCollection::collection($pedido->itens));
     }
 }
