@@ -4,7 +4,7 @@
 
 use App\Model\ItemPedido;
 use App\Model\Usuario;
-use App\Model\Endereco;
+use App\Model\Produto;
 use Faker\Generator as Faker;
 
 $factory->define(ItemPedido::class, function (Faker $faker) {
@@ -18,7 +18,7 @@ $factory->define(ItemPedido::class, function (Faker $faker) {
 
         'produto_id' => function (){
 
-            return Endereco::all()->random();
+            return Produto::all()->random();
             
         },
 

@@ -39,8 +39,6 @@ class CreateProdutosTable extends Migration
             
             $table->decimal('preco', 5, 2);
             
-            $table->decimal('preco_promocional', 5, 2);
-            
             $table->decimal('peso', 5, 3);
             
             $table->decimal('altura', 5, 3);

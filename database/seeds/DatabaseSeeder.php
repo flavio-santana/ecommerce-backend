@@ -32,5 +32,7 @@ class DatabaseSeeder extends Seeder
 
         factory(App\Model\ItemPedido::class,799)->create();
 
+        factory(App\Model\Promocao::class,40)->create();
+
     }
 }

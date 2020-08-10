@@ -34,9 +34,7 @@ $factory->define(Produto::class, function (Faker $faker) {
         'descricao_para_seo' => $faker->text,
         
         'preco' =>  $faker->randomFloat($nbMaxDecimals = 2, $min = 10, $max = 100),
-        
-        'preco_promocional' => $faker->randomFloat($nbMaxDecimals = 2, $min = 10, $max = 100),
-        
+         
         'peso' => $faker->randomFloat($nbMaxDecimals = 3, $min = 0, $max = 2),
         
         'altura' => $faker->randomFloat($nbMaxDecimals = 3, $min = 0, $max = 2),
