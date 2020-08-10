@@ -44,3 +44,8 @@ Route::get('/pedidos/{pedido}/itens', 'PedidoController@itemPedidos')->name('ite
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/cupons','CupomController');
+
+// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+Route::apiResource('/promocoes','PromocaoController');
+//
+Route::get('/promocoes/ativas/{opcao}', 'PromocaoController@promocaoAtiva')->name('promocoes.ativas');

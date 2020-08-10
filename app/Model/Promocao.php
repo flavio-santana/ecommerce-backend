@@ -12,7 +12,7 @@ class Promocao extends Model
 {
     //
     protected $fillable = array(
-    'id', 'produto_id', 'data_inicio', 'data_termino', 'ativo',
+        'id', 'produto_id', 'data_inicio', 'data_termino', 'ativo',
     );
     
     /**

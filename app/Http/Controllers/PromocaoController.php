@@ -4,9 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Model\Promocao;
 use Illuminate\Http\Request;
+use App\Http\Resources\Promocao\PromocaoResource; 
+use App\Http\Resources\Promocao\PromocaoCollection;
+use App\Repositories\PromocaoRepository;
 
+/**
+ * PromocaoController
+ */
 class PromocaoController extends Controller
 {
+
+    protected $promocao;
+  
+    /**
+     * __construct
+     *
+     * @param  mixed $promocao
+     * @return void
+     */
+    public function __construct(PromocaoRepository $promocao)
+    {
+        $this->promocao = $promocao;
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +35,7 @@ class PromocaoController extends Controller
     public function index()
     {
         //
+        return PromocaoCollection::collection($this->promocao->all());
     }
 
     /**
@@ -44,9 +65,10 @@ class PromocaoController extends Controller
      * @param  \App\Model\Promocao  $promocao
      * @return \Illuminate\Http\Response
      */
-    public function show(Promocao $promocao)
+    public function show(Promocao $promoco)
     {
         //
+        return new PromocaoResource($this->promocao->get($promoco->id));
     }
 
     /**
@@ -81,5 +103,10 @@ class PromocaoController extends Controller
     public function destroy(Promocao $promocao)
     {
         //
+    }
+
+    public function promocaoAtiva(String $opcao)
+    {
+        return PromocaoCollection::collection($this->promocao->promocaoAtiva($opcao));
     }
 }

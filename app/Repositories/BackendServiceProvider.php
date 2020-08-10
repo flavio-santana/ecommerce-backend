@@ -11,6 +11,11 @@ class BackendServiceProvider extends ServiceProvider
     {
        
         $this->app->bind(
+            'App\Repositories\PromocaoRepositoryInterface',
+            'App\Repositories\PromocaoRepository'
+        );
+
+        $this->app->bind(
             'App\Repositories\CupomRepositoryInterface',
             'App\Repositories\CupomRepository'
         );
