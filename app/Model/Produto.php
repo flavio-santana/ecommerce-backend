@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Model\Linha; 
 use App\Model\Variacao; 
+use App\Model\Promocao; 
 
 class Produto extends Model
 {
@@ -35,5 +36,15 @@ class Produto extends Model
     public function variacoes()
     {
         return $this->hasMany(Variacao::class);
+    }
+    
+    /**
+     * promocoes
+     *
+     * @return void
+     */
+    public function promocoes()
+    {
+        return $this->hasMany(Promocao::class);        
     }
 }
