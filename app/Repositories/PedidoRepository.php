@@ -170,18 +170,16 @@ class PedidoRepository implements PedidoRepositoryInterface
     {
         return Pedido::paginate($take);
     }
-    
+        
     /**
-     * itens
+     * pedidoPorCupom
      *
+     * @param  mixed $cupom_id
      * @return void
      */
-    public function itens(Pedido $pedido)
+    public function pedidoPorCupom($cupom_id)
     {
-        //$pedido = new Pedido;
-
-        //return $pedido;
-        //return $pedido->itens();
+        return Pedido::where('cupom_id',$cupom_id)->get();
     }
 
 }

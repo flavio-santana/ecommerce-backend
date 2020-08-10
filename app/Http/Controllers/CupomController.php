@@ -4,9 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Model\Cupom;
 use Illuminate\Http\Request;
+use App\Http\Resources\Cupom\CupomCollection;
+use App\Http\Resources\Cupom\CupomResource;
+use App\Repositories\CupomRepository;
+use App\Repositories\PedidoRepository;
 
+/**
+ * CupomController
+ */
 class CupomController extends Controller
 {
+
+    protected $cupom;
+
+        
+    /**
+     * __construct
+     *
+     * @param  mixed $variacao
+     * @return void
+     */
+    public function __construct(CupomRepository $cupom)
+    {
+        $this->cupom = $cupom;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +37,7 @@ class CupomController extends Controller
     public function index()
     {
         //
+        return CupomCollection::collection($this->cupom->all());
     }
 
     /**
@@ -25,6 +48,7 @@ class CupomController extends Controller
     public function create()
     {
         //
+        //return compose()->json('store');
     }
 
     /**
@@ -36,6 +60,7 @@ class CupomController extends Controller
     public function store(Request $request)
     {
         //
+        return response()->json($this->cupom->save($request));
     }
 
     /**
@@ -44,9 +69,10 @@ class CupomController extends Controller
      * @param  \App\Model\Cupom  $cupom
      * @return \Illuminate\Http\Response
      */
-    public function show(Cupom $cupom)
+    public function show(Cupom $cupon)
     {
         //
+        return new CupomResource($this->cupom->get($cupon->id));
     }
 
     /**
@@ -67,9 +93,10 @@ class CupomController extends Controller
      * @param  \App\Model\Cupom  $cupom
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cupom $cupom)
+    public function update(Request $request, Cupom $cupon)
     {
         //
+        return response()->json($this->cupom->update($cupon->id, $request));
     }
 
     /**
@@ -78,8 +105,20 @@ class CupomController extends Controller
      * @param  \App\Model\Cupom  $cupom
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cupom $cupom)
+    public function destroy(Cupom $cupon, PedidoRepository $pedidoRepository)
     {
-        //
+        
+        $return = $pedidoRepository->pedidoPorCupom($cupon->id);
+        
+        if($return->count() > 0 )
+            return response()->json(
+                $data=[
+                    'status'=>'0',
+                    'msg'=>'fail'
+                ]
+            );
+        else 
+            return  $this->cupom->delete($cupon->id);
+        
     }
 }

@@ -41,3 +41,6 @@ Route::apiResource('/variacoes','VariacaoController');
 Route::apiResource('/pedidos','PedidoController');
 //
 Route::get('/pedidos/{pedido}/itens', 'PedidoController@itemPedidos')->name('item.pedidos');
+
+// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+Route::apiResource('/cupons','CupomController');
