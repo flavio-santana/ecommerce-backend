@@ -42,20 +42,29 @@ class PromocaoRepository implements PromocaoRepositoryInterface
     public function delete($id)
     {
         
-        $answer = Promocao::destroy($id); 
+        $data = Promocao::join('item_pedidos', 'promocaos.id','=','item_pedidos.promocao_id')
+            ->where('promocaos.id',$id)
+            ->select('promocaos.id', 'promocaos.produto_id', 'promocaos.preco_promocional', 
+            'promocaos.data_inicio', 'promocaos.data_termino', 'promocaos.ativo')
+            ->get();
 
-        if ($answer){
-            $data=[
-                'status'=>'1',
-                'msg'=>'success'
-            ];
-        }else{
+           
+        if($data->count() > 0){
             $data=[
                 'status'=>'0',
-                'msg'=>'fail'
+                'msg'=>'Essa registro não pode ser excluído, porque já está vinculada a um pedido!'
             ];
-        } 
+        }else{
+
+            $promocao = Promocao::destroy($id);
+            
+            $data=[
+                'status'=>'1',
+                'msg'=>'Registro excluído com sucesso!'
+            ];
+        }
         
+
         return $data;
     }
     
@@ -71,28 +80,22 @@ class PromocaoRepository implements PromocaoRepositoryInterface
         // json to array
         $data = [
             
-            'descricao' => $json->{'descricao'},
+            'produto_id' => $json->{'produto_id'},
 
-            'valor_minino_compra' => $json->{'valor_minino_compra'},
-            
-            'porcentagem_desconto' => $json->{'porcentagem_desconto'},
-            
-            'valor_desconto' => $json->{'valor_desconto'},
-            
+            'preco_promocional' => $json->{'preco_promocional'},
+        
             'data_inicio' => $json->{'data_inicio'},
-            
+        
             'data_termino' => $json->{'data_termino'},
-
-            'tipo_cupom' => $json->{'tipo_cupom'},
-            
+        
             'ativo' => $json->{'ativo'},
-
+        
         ];
         
         //
-        $answer = Promocao::find($id)->update($data);
+        $promocao = Promocao::find($id)->update($data);
 
-        if ($answer){
+        if ($promocao){
             $data=[
                 'status'=>'1',
                 'msg'=>'success'
@@ -119,28 +122,22 @@ class PromocaoRepository implements PromocaoRepositoryInterface
        // json to array
        $data = [
             
-            'descricao' => $json->{'descricao'},
+            'produto_id' => $json->{'produto_id'},
 
-            'valor_minino_compra' => $json->{'valor_minino_compra'},
-            
-            'porcentagem_desconto' => $json->{'porcentagem_desconto'},
-            
-            'valor_desconto' => $json->{'valor_desconto'},
+            'preco_promocional' => $json->{'preco_promocional'},
             
             'data_inicio' => $json->{'data_inicio'},
             
             'data_termino' => $json->{'data_termino'},
-
-            'tipo_cupom' => $json->{'tipo_cupom'},
             
             'ativo' => $json->{'ativo'},
-
+            
         ];
 
-        
-        $cupom = Promocao::create($data);
+        //
+        $promocao = Promocao::create($data);
 
-        if ($cupom){
+        if ($promocao){
             $data=[
                 'status'=>'1',
                 'msg'=>'success'

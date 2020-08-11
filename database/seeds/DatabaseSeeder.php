@@ -30,9 +30,9 @@ class DatabaseSeeder extends Seeder
 
         factory(App\Model\Pedido::class,99)->create();
 
-        factory(App\Model\ItemPedido::class,799)->create();
+        factory(App\Model\Promocao::class,20)->create();
 
-        factory(App\Model\Promocao::class,40)->create();
+        factory(App\Model\ItemPedido::class,799)->create();
 
     }
 }

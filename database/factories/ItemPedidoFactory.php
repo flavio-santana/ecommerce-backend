@@ -5,6 +5,7 @@
 use App\Model\ItemPedido;
 use App\Model\Usuario;
 use App\Model\Produto;
+use App\Model\Promocao;
 use Faker\Generator as Faker;
 
 $factory->define(ItemPedido::class, function (Faker $faker) {
@@ -22,8 +23,14 @@ $factory->define(ItemPedido::class, function (Faker $faker) {
             
         },
 
-        'qtde_unitaria' => $faker->randomDigitNotNull,
+        'promocao_id' => function (){
 
-        'valor_unitario' => $faker->randomFloat($nbMaxDecimals = 2, $min = 10, $max = 100),
+            return Promocao::all()->random();
+            
+        },
+
+        'preco_unitario' => $faker->randomFloat($nbMaxDecimals = 2, $min = 10, $max = 100),
+
+        'qtde_unitaria' => $faker->randomDigitNotNull,
     ];
 });

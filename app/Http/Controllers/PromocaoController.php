@@ -57,6 +57,7 @@ class PromocaoController extends Controller
     public function store(Request $request)
     {
         //
+        return response()->json($this->promocao->save($request));
     }
 
     /**
@@ -77,7 +78,7 @@ class PromocaoController extends Controller
      * @param  \App\Model\Promocao  $promocao
      * @return \Illuminate\Http\Response
      */
-    public function edit(Promocao $promocao)
+    public function edit(Promocao $promoco)
     {
         //
     }
@@ -89,9 +90,10 @@ class PromocaoController extends Controller
      * @param  \App\Model\Promocao  $promocao
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Promocao $promocao)
+    public function update(Request $request, Promocao $promoco)
     {
         //
+        return response()->json($this->promocao->update($promoco->id, $request));
     }
 
     /**
@@ -100,11 +102,18 @@ class PromocaoController extends Controller
      * @param  \App\Model\Promocao  $promocao
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Promocao $promocao)
+    public function destroy(Promocao $promoco)
     {
         //
+        return response()->json($this->promocao->delete($promoco->id));
     }
-
+    
+    /**
+     * promocaoAtiva
+     *
+     * @param  mixed $opcao
+     * @return void
+     */
     public function promocaoAtiva(String $opcao)
     {
         return PromocaoCollection::collection($this->promocao->promocaoAtiva($opcao));

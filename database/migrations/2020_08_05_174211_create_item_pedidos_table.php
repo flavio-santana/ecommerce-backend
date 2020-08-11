@@ -28,9 +28,15 @@ class CreateItemPedidosTable extends Migration
                 ->foreign('produto_id')->references('id')
                 ->on('produto')->onUpdate('cascade');
 
-            $table->integer('qtde_unitaria');    
+            $table->integer('promocao_id')
+                ->nullable()
+                ->comment('Nessa coluna irá conter o ID da promoção realizada para o produto.');
+ 
+            $table->decimal('preco_unitario', 5, 3)
+                ->comment('Se o produto estiver em promoção, o valor armazedo deve ser o dá promoção vigente.');
 
-            $table->decimal('valor_unitario', 5, 3);
+            $table->integer('qtde_unitaria')
+                ->comment('Neste campo será armazedo a quantidade de itens adquirido do produto.');
 
             $table->timestamps();
         });
