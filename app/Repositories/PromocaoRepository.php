@@ -5,6 +5,7 @@ namespace App\Repositories;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Model\Promocao;
+use Carbon\Carbon;
 
 /**
  * CupomRepository
@@ -170,7 +171,10 @@ class PromocaoRepository implements PromocaoRepositoryInterface
      */
     public function promocaoAtiva(String $opcao)
     {
-        return Promocao::where('ativo','=',$opcao)->get();
+        return Promocao::where('ativo', '=', $opcao)
+        ->whereDate('data_inicio', '<=', '2020-08-12')
+        ->whereDate('data_termino', '>=', '2020-08-12')
+        ->get();
     }
 
 }

@@ -118,4 +118,5 @@ class PromocaoController extends Controller
     {
         return PromocaoCollection::collection($this->promocao->promocaoAtiva($opcao));
     }
+    
 }
