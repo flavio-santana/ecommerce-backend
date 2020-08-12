@@ -51,10 +51,12 @@ class CreateProdutosTable extends Migration
 
             $table->integer('ordem');
             
+            $table->enum('frete_gratis', ['Nao', 'Sim']);
+
+            $table->enum('lancamento', ['Nao', 'Sim']);
+            
             $table->enum('ativo', ['Nao', 'Sim']);
 
-            $table->enum('frete_gratis', ['Nao', 'Sim']);
-            
             $table->timestamps();
 
         });
