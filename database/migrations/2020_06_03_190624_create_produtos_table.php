@@ -53,6 +53,8 @@ class CreateProdutosTable extends Migration
             
             $table->enum('frete_gratis', ['Nao', 'Sim']);
 
+            $table->enum('destaque', ['Nao', 'Sim'])->default('Nao');
+
             $table->enum('lancamento', ['Nao', 'Sim'])->default('Nao');
             
             $table->enum('ativo', ['Nao', 'Sim']);
