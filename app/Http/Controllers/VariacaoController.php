@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Variacao;
+use App\Model\Produto;
 use Illuminate\Http\Request;
 use App\Http\Resources\Variacao\VariacaoCollection;
 use App\Http\Resources\Variacao\VariacaoResource;
@@ -104,5 +105,17 @@ class VariacaoController extends Controller
     public function destroy(Variacao $variacao)
     {
         //
+    }
+
+    /**
+     * produtoVariacoes
+     *
+     * @param  mixed $produto
+     * @return void
+     */
+    public function variacaoProduto(Produto $produto)
+    {
+        //
+        return VariacaoCollection::collection($this->variacao->variacaoProduto($produto->id));
     }
 }

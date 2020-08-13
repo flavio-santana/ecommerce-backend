@@ -10,7 +10,7 @@ Route::get('/produtos/exibir-na-loja/{opcao}','ProdutoController@exibirNaLoja');
 // Retorna uma lista de produtos, conforme o valor(sim, nao) passado. 
 Route::get('/produtos/frete-gratis/{opcao}','ProdutoController@freteGratis');
 //
-Route::get('/produtos/{produto}/variacoes', 'ProdutoController@produtoVariacoes')->name('produto.variacoes');
+Route::get('/lancamentos/produtos', 'ProdutoController@produtoLancamentos')->name('produto.lancamentos');
 
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
@@ -41,6 +41,8 @@ Route::apiResource('/enderecos','EnderecoController');
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/variacoes','VariacaoController');
+//
+Route::get('/produtos/{produto}/variacoes', 'VariacaoController@variacaoProduto')->name('variacao.produto');
 
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)

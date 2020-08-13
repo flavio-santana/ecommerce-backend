@@ -22,7 +22,7 @@ class VariacaoResource extends JsonResource
             'ordem'      => $this->ordem,
             
             'ref' => [
-                'href'  => route('produto.variacoes', $this->produto_id),
+                'href'  => route('variacao.produto', $this->produto_id),
             ],
 
             'ref2' => [

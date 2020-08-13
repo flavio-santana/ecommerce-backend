@@ -32,8 +32,9 @@ class ProdutoResource extends JsonResource
             'largura'            => $this->largura,
             'comprimento'        => $this->comprimento,
             'estoque'            => $this->estoque,
-            'ativo'              => $this->ativo,
             'frete_gratis'       => $this->frete_gratis,
+            'lancamento'         => $this->lancamento,
+            'ativo'              => $this->ativo,
               
             'ref1' => [
                 'href'  => route('produtos.index'),
@@ -44,7 +45,7 @@ class ProdutoResource extends JsonResource
             ],
 
             'ref3' => [
-                'href'  => route('produto.variacoes',$this->id),
+                'href'  => route('variacao.produto',$this->id),
             ],
         ];
     }

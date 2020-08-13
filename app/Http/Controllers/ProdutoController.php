@@ -140,14 +140,13 @@ class ProdutoController extends Controller
     }
     
     /**
-     * produtoVariacoes
+     * produtoLancamentos
      *
-     * @param  mixed $produto
      * @return void
      */
-    public function produtoVariacoes(Produto $produto)
+    public function produtoLancamentos()
     {
         //
-        return VariacaoCollection::collection($this->produto->produtoVariacoes($produto->id));
+        return ProdutoCollection::collection($this->produto->lancamento());
     }
 }

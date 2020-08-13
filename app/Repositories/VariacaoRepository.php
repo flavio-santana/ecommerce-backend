@@ -171,4 +171,27 @@ class VariacaoRepository implements VariacaoRepositoryInterface
         return Variacao::paginate($take);
     }
 
+        
+    /**
+     * variacaoProduto
+     *
+     * @param  mixed $produto_id
+     * @return void
+     */
+    public function variacaoProduto(int $produto_id)
+    {
+         
+        return Variacao::where('produto_id',$produto_id)
+            ->select(['variacaos.id', 
+            'variacaos.produto_id', 
+            'variacaos.variacao', 
+            'variacaos.descricao', 
+            'variacaos.ordem',
+            'produtos.preco'])
+            ->join('produtos','variacaos.variacao','=','produtos.id')
+            ->orderBy('variacaos.ordem')
+            ->get();
+
+    }
+
 }

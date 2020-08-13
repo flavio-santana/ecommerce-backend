@@ -5,7 +5,6 @@ namespace App\Repositories;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Model\Produto;
-use App\Model\Variacao;
 
 /**
  * 
@@ -104,20 +103,15 @@ class ProdutoRepository implements ProdutoRepositoryInterface
     }
             
     /**
-     * produtoVariacoes
+     * lancamento
      *
-     * @param  mixed $produto_id
      * @return void
      */
-    public function produtoVariacoes(int $produto_id)
+    public function lancamento()
     {
-        //       
-        return Variacao::where('produto_id',$produto_id)
-            ->select(['variacaos.id', 'variacaos.produto_id', 'variacaos.variacao', 'variacaos.descricao', 'variacaos.ordem','produtos.preco'])
-            ->join('produtos','variacaos.variacao','=','produtos.id')
-            ->orderBy('variacaos.ordem')
+        return Produto::where('lancamento','=','Sim')
+            ->select('id','sku', 'nome', 'descricao')
             ->get();
-
     }
 
 }
