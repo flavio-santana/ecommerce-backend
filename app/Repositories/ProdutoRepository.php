@@ -110,8 +110,20 @@ class ProdutoRepository implements ProdutoRepositoryInterface
     public function lancamento()
     {
         return Produto::where('lancamento','=','Sim')
-            ->select('id','sku', 'nome', 'descricao')
-            ->get();
+        ->select('id','sku', 'nome', 'descricao')
+        ->get();
+    }
+    
+    /**
+     * destaque
+     *
+     * @return void
+     */
+    public function destaque()
+    {
+        return Produto::where('destaque','=','sim')
+        ->select('id','sku', 'nome', 'descricao')
+        ->get();
     }
 
 }

@@ -11,6 +11,8 @@ Route::get('/produtos/exibir-na-loja/{opcao}','ProdutoController@exibirNaLoja');
 Route::get('/produtos/frete-gratis/{opcao}','ProdutoController@freteGratis');
 //
 Route::get('/lancamentos/produtos', 'ProdutoController@produtoLancamentos')->name('produto.lancamentos');
+//
+Route::get('/produtos-em-destaque', 'ProdutoController@produtoDestaque');
 
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)

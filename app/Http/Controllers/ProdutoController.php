@@ -149,4 +149,14 @@ class ProdutoController extends Controller
         //
         return ProdutoCollection::collection($this->produto->lancamento());
     }
+    
+    /**
+     * produtoDestaque
+     *
+     * @return void
+     */
+    public function produtoDestaque()
+    {
+        return ProdutoCollection::collection($this->produto->destaque());
+    }
 }
