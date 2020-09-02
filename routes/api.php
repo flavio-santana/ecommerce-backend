@@ -3,17 +3,21 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
-Route::apiResource('/produtos','ProdutoController');
-// Retorna uma lista de produtos, conforme o valor(sim, nao) passado. 
-Route::get('/produtos/exibir-na-loja/{opcao}','ProdutoController@exibirNaLoja');
-// Retorna uma lista de produtos, conforme o valor(sim, nao) passado. 
-Route::get('/produtos/frete-gratis/{opcao}','ProdutoController@freteGratis');
-//
-Route::get('/lancamentos/produtos', 'ProdutoController@produtoLancamentos')->name('produto.lancamentos');
-//
-Route::get('/produtos-em-destaque', 'ProdutoController@produtoDestaque');
+// ROUTE GROUP
+Route::group(['middleware' => ['jwt.auth']], function () {
+    
+    // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+    Route::apiResource('/produtos','ProdutoController');
+    // Retorna uma lista de produtos, conforme o valor(sim, nao) passado. 
+    Route::get('/produtos/exibir-na-loja/{opcao}','ProdutoController@exibirNaLoja');
+    // Retorna uma lista de produtos, conforme o valor(sim, nao) passado. 
+    Route::get('/produtos/frete-gratis/{opcao}','ProdutoController@freteGratis');
+    //
+    Route::get('/lancamentos/produtos', 'ProdutoController@produtoLancamentos')->name('produto.lancamentos');
+    //
+    Route::get('/produtos-em-destaque', 'ProdutoController@produtoDestaque');
 
+});
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/tipos-cabelos','TipoCabeloController');
@@ -33,6 +37,7 @@ Route::get('/linhas/exibir-na-loja/{opcao}','LinhaController@exibirNaLoja');
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/usuarios','UsuarioController');
+//Route::apiResource('/usuarios','UsuarioController')->middleware('jwt.auth');
 //
 Route::get('/usuarios/{usuario}/enderecos', 'UsuarioController@usuarioEnderecos')->name('usuario.enderecos');
 
