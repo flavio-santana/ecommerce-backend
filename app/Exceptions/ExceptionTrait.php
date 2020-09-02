@@ -23,7 +23,7 @@ trait ExceptionTrait
      */
     public function apiException($request, $e)
     {
-
+        
         if ($this->isModel($e)) {
 
             // 

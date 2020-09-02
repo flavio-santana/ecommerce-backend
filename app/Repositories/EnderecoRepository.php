@@ -2,9 +2,11 @@
 
 namespace App\Repositories;
 
+use App\Validation\Validator;
 use Illuminate\Database\Eloquent\Model;
-
 use App\Model\Endereco;
+use App\Http\Requests\EnderecoRequest;
+
 
 /**
  * 
@@ -84,10 +86,15 @@ class EnderecoRepository implements UsuarioRepositoryInterface
 
         ];
         
-        //
-        $answer = Endereco::find($id)->update($data);
+        $EnderecoRequest = new EnderecoRequest;
 
-        if ($answer){
+        //
+        //$teste = Validator::make($data, $EnderecoRequest->rules());
+
+        //
+        $endereco = Endereco::find($id)->update($data);
+
+        if ($endereco){
             $data=[
                 'status'=>'1',
                 'msg'=>'success'
@@ -115,35 +122,22 @@ class EnderecoRepository implements UsuarioRepositoryInterface
         // json to array
         $data = [
 
-            'nome' => $json->{'nome'},
+            'usuario_id' => $json->{'usuario_id'},
 
-            'data_nascimento' => $json->{'data_nascimento'},
+            'logradouro' => $json->{'logradouro'},
             
-            'cpf' => $json->{'cpf'},
-            
-            'email' => $json->{'email'},
-            
-            'telefone' => $json->{'telefone'},
-            
-            'whatsapp' => $json->{'whatsapp'},
-            
-            'genero' => $json->{'genero'},
-
-            'endereco' => $json->{'endereco'},
-
             'complemento' => $json->{'complemento'},
+            
+            'cep' => $json->{'cep'},
             
             'bairro' => $json->{'bairro'},
             
-            'cep' => $json->{'cep'},
-
             'cidade' => $json->{'cidade'},
             
             'uf' => $json->{'uf'},
 
-            'origem' => $json->{'origem'},
+            'ativo' => $json->{'ativo'},
 
-            'publicado' => $json->{'publicado'}
         ];
 
         $user = Endereco::create($data);
