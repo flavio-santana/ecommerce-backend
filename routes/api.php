@@ -52,9 +52,18 @@ Route::apiResource('/pedidos','PedidoController');
 //
 Route::get('/pedidos/{pedido}/itens', 'PedidoController@itemPedidos')->name('item.pedidos');
 
-
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/cupons','CupomController');
+
+Route::group(array('prefix' => 'api/v1', 'before' => 'auth.basic'), function()
+{
+    //Route::resource('/cupons', 'CupomController', array('only' => array('index', 'store', 'show', 'update', 'destroy')));
+    //Route::resource('users', 'UsersController');
+    
+    // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+    //Route::apiResource('/cupons','CupomController');
+
+});
 
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
