@@ -36,4 +36,48 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    /**
+     * getJWTIdentifier
+     *
+     * @return void
+     */
+    public function getJWTIdentifier()
+    {
+        // TODO: Implement getJWTIdentifier() method.
+        return $this->getKey();
+    }
+    
+    /**
+     * getJWTCustomClaims
+     *
+     * @return void
+     */
+    public function getJWTCustomClaims()
+    {
+        // TODO: Implement getJWTCustomClaims() method.
+        return [
+            'email' => $this->email
+        ];
+    }
+    
+    /**
+     * login
+     *
+     * @param  mixed $array
+     * @return void
+     */
+    public function login($array)
+    {
+        
+        if (!Auth::attempt(['email' => $array['email'], 'password' => $array['password']])) {
+            throw new HttpResponseException(response()->json(['Usuário ou senha incorreto.'], 400));
+        }
+
+        //
+        $user = JWTAuth::fromUser(Auth::user());
+        
+        //
+        return response()->json($user);
+    }
 }
