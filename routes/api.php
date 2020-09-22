@@ -8,28 +8,29 @@ use Illuminate\Support\Facades\Route;
 Route::post('/auth/register','AuthController@register');
 //
 Route::post('/auth/login','AuthController@login');
-//
-Route::get('/auth/user-profile','AuthController@userProfile');
-//
-Route::post('/auth/refresh','AuthController@refresh');
-//
-Route::post('/auth/logout','AuthController@logout');
 
 // ROUTE GROUP
-//Route::group(['middleware' => ['jwt.auth']], function () {
+Route::group(['middleware' => ['jwt.auth']], function () {
     
-    // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
-    Route::apiResource('/produtos','ProdutoController');
-    // Retorna uma lista de produtos, conforme o valor(sim, nao) passado. 
-    Route::get('/produtos/exibir-na-loja/{opcao}','ProdutoController@exibirNaLoja');
-    // Retorna uma lista de produtos, conforme o valor(sim, nao) passado. 
-    Route::get('/produtos/frete-gratis/{opcao}','ProdutoController@freteGratis');
     //
-    Route::get('/lancamentos/produtos', 'ProdutoController@produtoLancamentos')->name('produto.lancamentos');
+    Route::get('/auth/logout','AuthController@logout');
     //
-    Route::get('/produtos-em-destaque', 'ProdutoController@produtoDestaque');
+    Route::get('/auth/user-profile','AuthController@userProfile');
+    //
+    Route::post('/auth/refresh','AuthController@refresh');
 
-//});
+});
+
+// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+Route::apiResource('/produtos','ProdutoController');
+// Retorna uma lista de produtos, conforme o valor(sim, nao) passado. 
+Route::get('/produtos/exibir-na-loja/{opcao}','ProdutoController@exibirNaLoja');
+// Retorna uma lista de produtos, conforme o valor(sim, nao) passado. 
+Route::get('/produtos/frete-gratis/{opcao}','ProdutoController@freteGratis');
+//
+Route::get('/lancamentos/produtos', 'ProdutoController@produtoLancamentos')->name('produto.lancamentos');
+//
+Route::get('/produtos-em-destaque', 'ProdutoController@produtoDestaque');
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
 Route::apiResource('/tipos-cabelos','TipoCabeloController');
