@@ -3,6 +3,18 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
+// Authentication APIs for Login, Register, User Profile, Token Refresh and Logout.
+Route::post('/auth/register','AuthController@register');
+//
+Route::post('/auth/login','AuthController@login');
+//
+Route::get('/auth/user-profile','AuthController@userProfile');
+//
+Route::post('/auth/refresh','AuthController@refresh');
+//
+Route::post('/auth/logout','AuthController@logout');
+
 // ROUTE GROUP
 //Route::group(['middleware' => ['jwt.auth']], function () {
     

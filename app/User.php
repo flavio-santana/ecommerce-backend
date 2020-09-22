@@ -2,11 +2,13 @@
 
 namespace App;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
+use Tymon\JWTAuth\Contracts\JWTSubject;
+
+class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
@@ -55,29 +57,8 @@ class User extends Authenticatable
      */
     public function getJWTCustomClaims()
     {
-        // TODO: Implement getJWTCustomClaims() method.
-        return [
-            'email' => $this->email
-        ];
+        return [];
     }
     
-    /**
-     * login
-     *
-     * @param  mixed $array
-     * @return void
-     */
-    public function login($array)
-    {
-        
-        if (!Auth::attempt(['email' => $array['email'], 'password' => $array['password']])) {
-            throw new HttpResponseException(response()->json(['Usuário ou senha incorreto.'], 400));
-        }
-
-        //
-        $user = JWTAuth::fromUser(Auth::user());
-        
-        //
-        return response()->json($user);
-    }
+    
 }

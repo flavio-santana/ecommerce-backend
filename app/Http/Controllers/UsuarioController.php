@@ -109,6 +109,6 @@ class UsuarioController extends Controller
     public function usuarioEnderecos(Usuario $usuario)
     {
         //return response()->json($usuario->enderecos);
-        return EnderecoCollection::collection($usuario->enderecos);
+            
     }
 }
