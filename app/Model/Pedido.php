@@ -10,9 +10,17 @@ use App\Model\ItemPedido;
  */
 class Pedido extends Model
 {
+    
+    /**
+     * connection
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_pedido';
+
     //
     protected $fillable = array(
-        'id', 'usuario_id', 'endereco_id', 'pagamento_realizado', 
+        'id', 'cliente_id', 'endereco_id', 'pagamento_realizado', 
     );
     
     /**

@@ -13,6 +13,14 @@ use App\Model\Promocao;
  */
 class Produto extends Model
 {
+    
+    /**
+     * connection
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_produto';
+
     //
     protected $fillable = array(
         'id', 'sku', 'codigo_barras', 'identificador_url', 'nome', 'descricao', 'palavras_chave', 'titulo_para_seo', 

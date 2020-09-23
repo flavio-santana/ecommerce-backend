@@ -8,6 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class TipoCabelo extends Model
 {
+    
+    /**
+     * connection
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_produto';
+
     //
     protected $fillable = array(
         'id', 

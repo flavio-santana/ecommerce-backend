@@ -16,22 +16,28 @@ class CreateItemPedidosTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_pedidos', function (Blueprint $table) {
+        Schema::connection('mysql_pedido')->create('item_pedidos', function (Blueprint $table) {
             
             $table->increments('id');
 
             $table->integer('pedido_id')->unsigned()->index()
                 ->foreign('pedido_id')->references('id')
                 ->on('pedido')->onUpdate('cascade');
+            
+            $table->integer('produto_id');
 
+            $table->integer('promocao_id');
+
+            /*
             $table->integer('produto_id')->unsigned()->index()
                 ->foreign('produto_id')->references('id')
                 ->on('produto')->onUpdate('cascade');
-
+              
             $table->integer('promocao_id')
                 ->nullable()
                 ->comment('Nessa coluna irá conter o ID da promoção realizada para o produto.');
- 
+            */
+
             $table->decimal('preco_unitario', 5, 3)
                 ->comment('Se o produto estiver em promoção, o valor armazedo deve ser o dá promoção vigente.');
 
@@ -49,6 +55,6 @@ class CreateItemPedidosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_pedidos');
+        Schema::connection('mysql_pedido')->dropIfExists('item_pedidos');
     }
 }

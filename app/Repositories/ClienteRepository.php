@@ -4,12 +4,12 @@ namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Model\Usuario;
+use App\Model\Cliente;
 
 /**
  * 
  */
-class UsuarioRepository implements UsuarioRepositoryInterface
+class ClienteRepository implements ClienteRepositoryInterface
 {
     
     /**
@@ -20,7 +20,7 @@ class UsuarioRepository implements UsuarioRepositoryInterface
      */
     public function get($id)
     {
-        return Usuario::find($id);
+        return Cliente::find($id);
     }   
     
     /**
@@ -30,7 +30,7 @@ class UsuarioRepository implements UsuarioRepositoryInterface
      */
     public function all()
     {
-        return Usuario::all();
+        return Cliente::all();
     }
 
     /**
@@ -40,9 +40,9 @@ class UsuarioRepository implements UsuarioRepositoryInterface
      */
     public function delete($id)
     {
-        $answer=Usuario::destroy($id); 
+        $return=Cliente::destroy($id); 
 
-        if ($answer){
+        if ($return){
             $data=[
                 'status'=>'1',
                 'msg'=>'success'
@@ -87,9 +87,9 @@ class UsuarioRepository implements UsuarioRepositoryInterface
         ];
         
         //
-        $answer = Usuario::find($id)->update($data);
+        $return=Cliente::find($id)->update($data);
 
-        if ($answer){
+        if ($return){
             $data=[
                 'status'=>'1',
                 'msg'=>'success'
@@ -148,9 +148,9 @@ class UsuarioRepository implements UsuarioRepositoryInterface
             'publicado' => $json->{'publicado'}
         ];
 
-        $user = Usuario::create($data);
+        $return=Cliente::create($data);
 
-        if ($user){
+        if ($return){
             $data=[
                 'status'=>'1',
                 'msg'=>'success'
@@ -170,7 +170,7 @@ class UsuarioRepository implements UsuarioRepositoryInterface
      */
     public function paginate($take=0)
     {
-        return Usuario::paginate($take);
+        return Cliente::paginate($take);
     }
 
 }

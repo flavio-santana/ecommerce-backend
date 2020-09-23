@@ -9,6 +9,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Cupom extends Model
 {
+    
+    /**
+     * connection
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_pedido';
+
     //
     protected $fillable = array(
         'id', 'descricao', 'valor_minino_compra', 'porcentagem_desconto', 'valor_desconto', 

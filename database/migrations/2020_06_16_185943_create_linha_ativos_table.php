@@ -41,6 +41,6 @@ class CreateLinhaAtivosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('linha_ativos');
+        #Schema::dropIfExists('linha_ativos');
     }
 }

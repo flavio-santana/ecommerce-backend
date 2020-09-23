@@ -20,10 +20,10 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::post('/auth/refresh','AuthController@refresh');
 
     // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
-    Route::apiResource('/usuarios','UsuarioController');
+    Route::apiResource('/clientes','ClienteController');
     //Route::apiResource('/usuarios','UsuarioController')->middleware('jwt.auth');
     //
-    Route::get('/usuarios/{usuario}/enderecos', 'UsuarioController@usuarioEnderecos')->name('usuario.enderecos');
+    Route::get('/clientes/{cliente}/enderecos', 'ClienteController@clienteEndereco')->name('cliente.enderecos');
 
 });
 

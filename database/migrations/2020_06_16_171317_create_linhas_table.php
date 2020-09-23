@@ -14,7 +14,7 @@ class CreateLinhasTable extends Migration
     public function up()
     {
         
-        Schema::create('linhas', function (Blueprint $table) {
+        Schema::connection('mysql_produto')->create('linhas', function (Blueprint $table) {
             
             $table->increments('id');
             
@@ -51,6 +51,6 @@ class CreateLinhasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('linhas');
+        Schema::connection('mysql_produto')->dropIfExists('linhas');
     }
 }

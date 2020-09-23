@@ -43,6 +43,6 @@ class CreateAtivosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ativos');
+        #Schema::dropIfExists('ativos');
     }
 }

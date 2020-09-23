@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 
+#https://fideloper.com/laravel-multiple-database-connections
+
 return [
 
     /*
@@ -33,6 +35,8 @@ return [
     |
     */
 
+    'default' => 'mysql_produto',
+
     'connections' => [
 
         'sqlite' => [
@@ -43,14 +47,14 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
-        'mysql' => [
+        'mysql_produto' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'loja'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => env('DB_HOST_PRODUTO', '127.0.0.1'),
+            'port' => env('DB_PORT_PRODUTO', '3306'),
+            'database' => env('DB_DATABASE_PRODUTO', 'produto'),
+            'username' => env('DB_USERNAME_PRODUTO', 'root'),
+            'password' => env('DB_PASSWORD_PRODUTO', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -62,15 +66,15 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-        /*
-        'mysql2' => [
+        
+        'mysql_cliente' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'loja'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => env('DB_HOST_CLIENTE', '127.0.0.1'),
+            'port' => env('DB_PORT_CLIENTE', '3306'),
+            'database' => env('DB_DATABASE_CLIENTE', 'cliente'),
+            'username' => env('DB_USERNAME_CLIENTE', 'root'),
+            'password' => env('DB_PASSWORD_CLIENTE', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -82,7 +86,27 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-        */
+
+        'mysql_pedido' => [
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST_PEDIDO', '127.0.0.1'),
+            'port' => env('DB_PORT_PEDIDO', '3306'),
+            'database' => env('DB_DATABASE_PEDIDO', 'pedido'),
+            'username' => env('DB_USERNAME_PEDIDO', 'root'),
+            'password' => env('DB_PASSWORD_PEDIDO', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+        
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),

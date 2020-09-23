@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Usuario;
+namespace App\Http\Resources\Cliente;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class UsuarioCollection extends JsonResource
+class ClienteCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -21,7 +21,7 @@ class UsuarioCollection extends JsonResource
             'telefone'  => $this->telefone,
             'enderecos' => $this->enderecos->count() > 0 ? $this->enderecos->count() : 'Este usuário não possui endereços',
             'ref1' => [
-                'href'  => route('usuarios.show', $this->id),
+                'href'  => route('clientes.show', $this->id),
             ],
         ];
     }

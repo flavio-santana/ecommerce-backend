@@ -10,6 +10,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Promocao extends Model
 {
+    
+    /**
+     * connection
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_produto';
+
     //
     protected $fillable = array(
         'id', 'produto_id', 'preco_promocional', 'data_inicio', 'data_termino', 'ativo',

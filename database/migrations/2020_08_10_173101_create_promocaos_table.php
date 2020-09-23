@@ -13,7 +13,7 @@ class CreatePromocaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('promocaos', function (Blueprint $table) {
+        Schema::connection('mysql_produto')->create('promocaos', function (Blueprint $table) {
             
             $table->increments('id');
 
@@ -40,6 +40,6 @@ class CreatePromocaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('promocaos');
+        Schema::connection('mysql_produto')->dropIfExists('promocaos');
     }
 }

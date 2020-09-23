@@ -4,6 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * CreateClientesTable
+ */
 class CreateClientesTable extends Migration
 {
     /**
@@ -13,7 +16,8 @@ class CreateClientesTable extends Migration
      */
     public function up()
     {
-        Schema::create('clientes', function (Blueprint $table) {
+        
+        Schema::connection('mysql_cliente')->create('clientes', function (Blueprint $table) {
             
             $table->increments('id');
 
@@ -38,6 +42,7 @@ class CreateClientesTable extends Migration
             $table->timestamps();
 
         });
+        
     }
 
     /**
@@ -47,6 +52,6 @@ class CreateClientesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clientes');
+        Schema::connection('mysql_cliente')->dropIfExists('clientes');
     }
 }

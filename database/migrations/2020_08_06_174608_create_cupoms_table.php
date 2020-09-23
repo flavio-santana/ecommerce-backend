@@ -16,7 +16,7 @@ class CreateCupomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cupoms', function (Blueprint $table) {
+        Schema::connection('mysql_pedido')->create('cupoms', function (Blueprint $table) {
             
             $table->increments('id');
 
@@ -47,6 +47,6 @@ class CreateCupomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cupoms');
+        Schema::connection('mysql_pedido')->dropIfExists('cupoms');
     }
 }

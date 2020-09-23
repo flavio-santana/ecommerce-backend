@@ -13,7 +13,7 @@ class CreateVariacaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('variacaos', function (Blueprint $table) {
+        Schema::connection('mysql_produto')->create('variacaos', function (Blueprint $table) {
             
             $table->increments('id');
 
@@ -40,6 +40,6 @@ class CreateVariacaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('variacaos');
+        Schema::connection('mysql_produto')->dropIfExists('variacaos');
     }
 }

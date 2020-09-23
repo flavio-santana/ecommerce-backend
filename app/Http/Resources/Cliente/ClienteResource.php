@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Usuario;
+namespace App\Http\Resources\Cliente;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UsuarioResource extends JsonResource
+class ClienteResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -28,11 +28,11 @@ class UsuarioResource extends JsonResource
             'ativo'           => $this->ativo,
 
             'ref1' => [
-                'href'  => route('usuarios.index'),
+                'href'  => route('clientes.index'),
             ],
 
             'ref2' => [
-                'href'  => route('usuario.enderecos', $this->id),
+                'href'  => route('cliente.enderecos', $this->id),
             ],
 
         ];

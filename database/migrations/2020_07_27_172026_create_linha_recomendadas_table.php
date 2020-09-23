@@ -13,7 +13,7 @@ class CreateLinhaRecomendadasTable extends Migration
      */
     public function up()
     {
-        Schema::create('linha_recomendadas', function (Blueprint $table) {
+        Schema::connection('mysql_produto')->create('linha_recomendadas', function (Blueprint $table) {
             
             $table->increments('id');
 
@@ -36,6 +36,6 @@ class CreateLinhaRecomendadasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('linha_recomendadas');
+        Schema::connection('mysql_produto')->dropIfExists('linha_recomendadas');
     }
 }

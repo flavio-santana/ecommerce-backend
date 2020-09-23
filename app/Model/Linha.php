@@ -7,6 +7,14 @@ use App\Model\Produto;
 
 class Linha extends Model
 {
+    
+    /**
+     * connection
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_produto';
+
     //
     protected $fillable = array(
         'id', 

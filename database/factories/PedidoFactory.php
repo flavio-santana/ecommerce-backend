@@ -3,7 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Model\Pedido;
-use App\Model\Usuario;
+use App\Model\Cliente;
 use App\Model\Endereco;
 use App\Model\Cupom;
 use Faker\Generator as Faker;
@@ -11,9 +11,9 @@ use Faker\Generator as Faker;
 $factory->define(Pedido::class, function (Faker $faker) {
     return [
         //
-        'usuario_id' => function (){
+        'cliente_id' => function (){
 
-            return Usuario::all()->random();
+            return Cliente::all()->random();
             
         },
 

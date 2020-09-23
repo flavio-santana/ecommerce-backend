@@ -4,6 +4,9 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+/**
+ * CreateEnderecosTable
+ */
 class CreateEnderecosTable extends Migration
 {
     /**
@@ -13,7 +16,8 @@ class CreateEnderecosTable extends Migration
      */
     public function up()
     {
-        Schema::create('enderecos', function (Blueprint $table) {
+        
+        Schema::connection('mysql_cliente')->create('enderecos', function (Blueprint $table) {
             
             $table->increments('id');
 
@@ -37,6 +41,7 @@ class CreateEnderecosTable extends Migration
 
             $table->timestamps();
         });
+        
     }
 
     /**
@@ -46,6 +51,6 @@ class CreateEnderecosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('enderecos');
+        Schema::connection('mysql_cliente')->dropIfExists('enderecos');
     }
 }

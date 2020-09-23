@@ -13,7 +13,7 @@ class CreateTipoCabelosTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_cabelos', function (Blueprint $table) {
+        Schema::connection('mysql_produto')->create('tipo_cabelos', function (Blueprint $table) {
             
             $table->increments('id');
 
@@ -43,6 +43,6 @@ class CreateTipoCabelosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_cabelos');
+        Schema::connection('mysql_produto')->dropIfExists('tipo_cabelos');
     }
 }

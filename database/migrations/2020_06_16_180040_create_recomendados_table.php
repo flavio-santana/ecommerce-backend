@@ -43,6 +43,6 @@ class CreateRecomendadosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('recomendados');
+        #Schema::dropIfExists('recomendados');
     }
 }

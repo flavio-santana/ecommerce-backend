@@ -10,7 +10,19 @@ use App\Model\Cliente;
  */
 class Endereco extends Model
 {
-    //
+    
+    /**
+     * connection
+     *
+     * @var string
+     */
+    protected $connection = 'mysql_cliente';
+
+    /**
+     * fillable
+     *
+     * @var array
+     */
     protected $fillable = array(
         'cliente_id', 'logradouro', 'complemento', 'cep', 'bairro', 'cidade', 'uf', 'ativo', 
     );

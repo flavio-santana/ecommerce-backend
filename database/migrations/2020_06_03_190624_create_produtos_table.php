@@ -13,7 +13,7 @@ class CreateProdutosTable extends Migration
      */
     public function up()
     {
-        Schema::create('produtos', function (Blueprint $table) {
+        Schema::connection('mysql_produto')->create('produtos', function (Blueprint $table) {
             
             $table->increments('id');
             
@@ -71,6 +71,6 @@ class CreateProdutosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produtos');
+        Schema::connection('mysql_produto')->dropIfExists('produtos');
     }
 }

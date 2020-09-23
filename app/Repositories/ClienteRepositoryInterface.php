@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-interface UsuarioRepositoryInterface
+interface ClienteRepositoryInterface
 {
     /**
      * Recebe um produto por ID
