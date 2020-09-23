@@ -19,6 +19,12 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     //
     Route::post('/auth/refresh','AuthController@refresh');
 
+    // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+    Route::apiResource('/usuarios','UsuarioController');
+    //Route::apiResource('/usuarios','UsuarioController')->middleware('jwt.auth');
+    //
+    Route::get('/usuarios/{usuario}/enderecos', 'UsuarioController@usuarioEnderecos')->name('usuario.enderecos');
+
 });
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
@@ -46,13 +52,6 @@ Route::apiResource('/linhas','LinhaController');
 Route::get('/linhas/{linha}/produtos', 'LinhaController@linhaProdutos')->name('linha.produtos');
 // Retorna uma lista de produtos, conforme o valor(sim, nao) passado. 
 Route::get('/linhas/exibir-na-loja/{opcao}','LinhaController@exibirNaLoja');
-
-
-// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
-Route::apiResource('/usuarios','UsuarioController');
-//Route::apiResource('/usuarios','UsuarioController')->middleware('jwt.auth');
-//
-Route::get('/usuarios/{usuario}/enderecos', 'UsuarioController@usuarioEnderecos')->name('usuario.enderecos');
 
 
 // Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
