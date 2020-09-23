@@ -3,7 +3,7 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Model\Usuario; 
+use App\Model\Cliente; 
 
 /**
  * Endereco
@@ -12,7 +12,7 @@ class Endereco extends Model
 {
     //
     protected $fillable = array(
-        'usuario_id', 'logradouro', 'complemento', 'cep', 'bairro', 'cidade', 'uf', 'ativo', 
+        'cliente_id', 'logradouro', 'complemento', 'cep', 'bairro', 'cidade', 'uf', 'ativo', 
     );
     
     /**
@@ -22,6 +22,6 @@ class Endereco extends Model
      */
     public function usuario()
     {
-        $this->belongsTo(Usuario::class);
+        $this->belongsTo(Cliente::class);
     }
 }

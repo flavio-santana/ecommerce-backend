@@ -17,9 +17,9 @@ class CreateEnderecosTable extends Migration
             
             $table->increments('id');
 
-            $table->integer('usuario_id')->unsigned()->index()
-                ->foreign('usuario_id')->references('id')
-                ->on('usuario')->onUpdate('cascade');
+            $table->integer('cliente_id')->unsigned()->index()
+                ->foreign('cliente_id')->references('id')
+                ->on('cliente')->onUpdate('cascade');
             
             $table->char('logradouro',100);
 

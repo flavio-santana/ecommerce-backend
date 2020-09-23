@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
 
         factory(App\Model\LinhaRecomendada::class,67)->create();
 
-        factory(App\Model\Usuario::class,155)->create();
+        factory(App\Model\Cliente::class,18)->create();
 
-        factory(App\Model\Endereco::class,203)->create();
+        factory(App\Model\Endereco::class,99)->create();
 
         factory(App\Model\Variacao::class,151)->create();
 
