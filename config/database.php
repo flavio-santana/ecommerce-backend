@@ -35,7 +35,7 @@ return [
     |
     */
 
-    'default' => 'mysql_produto',
+    'default' => 'mysql_cliente',
 
     'connections' => [
 
