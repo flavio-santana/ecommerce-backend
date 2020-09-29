@@ -20,7 +20,7 @@ class CreatePedidosTable extends Migration
             
             $table->increments('id');
 
-            $table->integer('usuario_id');
+            $table->integer('cliente_id');
 
             $table->integer('endereco_id');
 

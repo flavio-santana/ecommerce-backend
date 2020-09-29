@@ -3,7 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Model\ItemPedido;
-use App\Model\Usuario;
+use App\Model\Pedido;
 use App\Model\Produto;
 use App\Model\Promocao;
 use Faker\Generator as Faker;
@@ -13,7 +13,7 @@ $factory->define(ItemPedido::class, function (Faker $faker) {
         //
         'pedido_id' => function (){
 
-            return Usuario::all()->random();
+            return Pedido::all()->random();
             
         },
 
