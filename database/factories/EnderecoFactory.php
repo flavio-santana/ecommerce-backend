@@ -3,16 +3,16 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\Model\Endereco;
-use App\Model\Usuario;
+use App\Model\Cliente;
 use Faker\Generator as Faker;
 
 $factory->define(Endereco::class, function (Faker $faker) {
     return [
         //
 
-        'usuario_id' => function (){
+        'cliente_id' => function (){
 
-            return Usuario::all()->random();
+            return Cliente::all()->random();
             
         },
 
