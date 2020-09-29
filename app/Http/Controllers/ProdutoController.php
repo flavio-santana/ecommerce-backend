@@ -6,11 +6,11 @@ use App\Model\Linha;
 use App\Model\Produto;
 use Illuminate\Http\Request;
 use App\Repositories\ProdutoRepository;
-//use App\Repositories\VariacaoRepository;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\Produto\ProdutoResource; 
 use App\Http\Resources\Produto\ProdutoCollection; 
 use App\Http\Resources\Variacao\VariacaoCollection; 
+use Illuminate\Support\Facades\Redis;
 
 
 /**
@@ -38,6 +38,15 @@ class ProdutoController extends Controller
      */
     public function index()
     {
+        //
+        #Redis::set('name', 'Taylor');
+
+        //
+        #$name = Redis::get('name');
+
+        //
+        #print $name;
+
         //
         return ProdutoCollection::collection($this->produto->all());
     }

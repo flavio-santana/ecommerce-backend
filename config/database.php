@@ -160,7 +160,7 @@ return [
     | such as APC or Memcached. Laravel makes it easy to dig right in.
     |
     */
-
+    /*
     'redis' => [
 
         'client' => env('REDIS_CLIENT', 'phpredis'),
@@ -175,7 +175,7 @@ return [
             'host' => env('REDIS_HOST', '127.0.0.1'),
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', '6379'),
-            'database' => env('REDIS_DB', '0'),
+            'database' => env('REDIS_DB', 0),
         ],
 
         'cache' => [
@@ -183,9 +183,44 @@ return [
             'host' => env('REDIS_HOST', '127.0.0.1'),
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', '6379'),
-            'database' => env('REDIS_CACHE_DB', '1'),
+            'database' => env('REDIS_CACHE_DB', 1),
         ],
 
     ],
+    */
+    
+    'redis' => [
 
+        'client' => env('REDIS_CLIENT', 'phpredis'),
+        #'client' => env('REDIS_CLIENT', 'predis'),
+        
+        'default' => [
+            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port' => env('REDIS_PORT', 6379),
+            'database' => env('REDIS_DB', 1),
+        ],
+        
+        /*
+        'default' => [
+            'host' => env('REDIS_HOST', 'localhost'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port' => env('REDIS_PORT', 6379),
+            'database' => 0,
+            'read_timeout' => 60,
+            'context' => [
+                // 'auth' => ['username', 'secret'],
+                // 'stream' => ['verify_peer' => false],
+            ],
+        ],
+        */
+
+        'cache' => [
+            'host' => env('REDIS_HOST', '127.0.0.1'),
+            'password' => env('REDIS_PASSWORD', null),
+            'port' => env('REDIS_PORT', 6379),
+            'database' => env('REDIS_CACHE_DB', 1),
+        ],
+    
+    ],
 ];
