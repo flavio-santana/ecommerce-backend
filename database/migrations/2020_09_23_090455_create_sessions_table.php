@@ -13,7 +13,7 @@ class CreateSessionsTable extends Migration
      */
     public function up()
     {
-        Schema::connection('mysql_produto')->create('sessions', function (Blueprint $table) {
+        Schema::connection('mysql_cliente')->create('sessions', function (Blueprint $table) {
             
             $table->string('id')->unique();
             
@@ -36,6 +36,6 @@ class CreateSessionsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('mysql_produto')->dropIfExists('sessions');
+        Schema::connection('mysql_cliente')->dropIfExists('sessions');
     }
 }
