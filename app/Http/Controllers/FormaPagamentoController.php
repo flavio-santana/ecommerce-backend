@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\FormaPagamento;
 use Illuminate\Http\Request;
 
+/**
+ * FormaPagamentoController
+ */
 class FormaPagamentoController extends Controller
 {
     /**
