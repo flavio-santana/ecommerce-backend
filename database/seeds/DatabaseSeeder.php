@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         
         factory(App\Model\Linha::class,17)->create();
-        
+
         factory(App\Model\Produto::class,223)->create();
 
         factory(App\Model\TipoCabelo::class,17)->create();
@@ -32,7 +32,11 @@ class DatabaseSeeder extends Seeder
 
         factory(App\Model\Promocao::class,20)->create();
 
-        factory(App\Model\ItemPedido::class,799)->create();
+        factory(App\Model\ItemPedido::class,666)->create();
+        
+        factory(App\Model\FormaPagamento::class,2)->create();
+
+        factory(App\Model\FormaPagamentoParcelamento::class,33)->create();
 
     }
 }
