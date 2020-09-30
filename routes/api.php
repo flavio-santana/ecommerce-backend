@@ -87,3 +87,6 @@ Route::group(array('prefix' => 'api/v1', 'before' => 'auth.basic'), function()
 Route::apiResource('/promocoes','PromocaoController');
 //
 Route::get('/promocoes/ativas/{opcao}', 'PromocaoController@promocaoAtiva')->name('promocoes.ativas');
+
+// Aqui, temos encapsulado os métodos index(get), store(post), show(get), update(put) e destroy(delete)
+Route::apiResource('/forma-pagamentos','FormaPagamentoController');
