@@ -5,9 +5,9 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * FormaPagamento
+ * FormaPagamentoParcelamento
  */
-class FormaPagamento extends Model
+class FormaPagamentoParcelamento extends Model
 {
     /**
      * connection
@@ -18,6 +18,6 @@ class FormaPagamento extends Model
 
     //
     protected $fillable = array(
-        'id', 'nome', 'agencia', 'conta_bancaria', 'ativo' 
+        'forma_pagamento_id', 'valor_minimo', 'numero_parcelas', 'conta_bancaria', 'ativo' 
     );
 }
